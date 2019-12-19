@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import Navbar from "./components/Navbar/Navbar";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
+import { ToobarHbClick } from "./actions/toobar";
 
 function App() {
+  const ToobarHamburguer = useSelector(state => state.ToobarReducer);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar HbClick={() => dispatch(ToobarHbClick())} />
+
+      <SideDrawer
+        open={ToobarHamburguer}
+        close={() => dispatch(ToobarHbClick())}
+        content=""
+      />
+      <main />
     </div>
   );
 }

@@ -1,0 +1,53 @@
+.hamburguerButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: #cb0a31;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.hamburguerButton:hover, .hamburguerButton:active {
+  background-color: #ed0c39;
+}
+
+.hamburguerButton .rbline {
+  width: 30px;
+  height: 3px;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+
+.hamburguerButton.close {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.hamburguerButton.close .rbline:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(8px, 8px);
+          transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburguerButton.close .rbline:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburguerButton.close .rbline:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(6px, -7px);
+          transform: rotate(-45deg) translate(6px, -7px);
+}
+/*# sourceMappingURL=HamburguerButton.css.map */

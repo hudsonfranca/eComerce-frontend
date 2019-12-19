@@ -1,0 +1,104 @@
+.App-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fafafa;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  position: fixed;
+}
+
+@media (max-width: 375px) {
+  .App-header {
+    height: 60px;
+  }
+}
+
+.App-header .toobar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+}
+
+.App-header .toobar .logo {
+  cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  .App-header .toobar .search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    top: 60px;
+    background-color: #fafafa;
+    left: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .App-header .toobar label {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .App-header .toobar {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .App-header .toobar .cart {
+    width: 30px;
+    height: 45px;
+    background-color: #cb0a31;
+    color: #fafafa;
+  }
+}
+
+@media (max-width: 375px) {
+  .App-header .toobar {
+    height: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .App-header .toobar .hamburguer-button {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Navbar.css.map */

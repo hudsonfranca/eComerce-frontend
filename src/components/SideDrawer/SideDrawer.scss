@@ -1,0 +1,25 @@
+@import "../style/scss/variables";
+
+.sideDrawer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: $primaryColor;
+  position: absolute;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  & > button {
+    align-self: flex-end;
+  }
+
+  .sideDrawer-content {
+    flex: 1;
+  }
+}

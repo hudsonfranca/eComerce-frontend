@@ -1,0 +1,16 @@
+.toobar__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: #cb0a31;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toobar__button:hover, .toobar__button:active {
+  background-color: #cb0a31;
+  color: #fafafa;
+}
+/*# sourceMappingURL=ToobarButton.css.map */

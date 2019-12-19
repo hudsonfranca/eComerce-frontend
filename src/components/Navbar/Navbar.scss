@@ -1,0 +1,75 @@
+@import "../style/scss/variables";
+@import "../style/scss/media";
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  background-color: $primaryColor;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  position: fixed;
+
+  @include mobile {
+    height: 60px;
+  }
+
+  .toobar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $primaryColor;
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .search {
+      @include mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+        top: 60px;
+        background-color: $primaryColor;
+        left: 0;
+      }
+    }
+
+    label {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    @include desktop {
+      justify-content: center;
+    }
+
+    .cart {
+      @include desktop {
+        width: 30px;
+        height: 45px;
+        background-color: $secondaryColor;
+        color: $primaryColor;
+      }
+    }
+
+    @include mobile {
+      height: 100%;
+    }
+
+    .hamburguer-button {
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+}
