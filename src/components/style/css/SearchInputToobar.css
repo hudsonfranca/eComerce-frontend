@@ -1,11 +1,12 @@
 .searchInput {
-  width: 80%;
+  width: 83%;
   height: 40px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   padding: 0;
   font-size: 1em;
-  border: 4px solid #cb0a31;
+  border: 4px solid #f9f6f7;
+  border-right: none;
 }
 
 .searchInputButom {
@@ -14,14 +15,15 @@
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   color: rgba(0, 0, 0, 0.5);
-  border: 4px solid #cb0a31;
   border-left: none;
+  background-color: #f9f6f7;
   cursor: pointer;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .searchInputButom:hover {
-  color: #cb0a31;
+  color: #313131;
+  background-color: white;
 }
 /*# sourceMappingURL=SearchInputToobar.css.map */

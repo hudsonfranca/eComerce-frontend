@@ -6,16 +6,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #fafafa;
+  background-color: transparent;
   width: 100%;
-  height: 100px;
-  padding: 5px;
+  height: 120px;
   position: fixed;
 }
 
-@media (max-width: 375px) {
+@media (min-width: 600px) {
   .App-header {
-    height: 60px;
+    height: 65px;
+    padding: 0;
   }
 }
 
@@ -30,73 +30,84 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #fafafa;
+  background-color: #313131;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
+
+@media (min-width: 600px) {
+  .App-header .toobar {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .App-header .toobar {
+    -ms-grid-columns: 1fr 4fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
 }
 
 .App-header .toobar .logo {
   cursor: pointer;
+  color: #f9f6f7;
 }
 
-@media (max-width: 375px) {
+.App-header .toobar .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: 60px;
+  background-color: #313131;
+  left: 0;
+}
+
+@media (min-width: 600px) {
   .App-header .toobar .search {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
-    height: 60px;
-    position: absolute;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    top: 60px;
-    background-color: #fafafa;
-    left: 0;
+    position: static;
   }
 }
 
-@media (max-width: 375px) {
+.App-header .toobar label {
+  display: none;
+}
+
+@media (min-width: 900px) {
   .App-header .toobar label {
-    display: none;
+    display: inline;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    color: #f9f6f7;
   }
 }
 
-@media (min-width: 992px) {
-  .App-header .toobar {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-@media (min-width: 992px) {
-  .App-header .toobar .cart {
-    width: 30px;
-    height: 45px;
-    background-color: #cb0a31;
-    color: #fafafa;
-  }
-}
-
-@media (max-width: 375px) {
-  .App-header .toobar {
-    height: 100%;
-  }
-}
-
-@media (min-width: 992px) {
+@media (min-width: 900px) {
   .App-header .toobar .hamburguer-button {
     display: none;
   }

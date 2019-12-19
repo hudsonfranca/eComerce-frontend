@@ -2,7 +2,7 @@
   width: 40px;
   height: 40px;
   background-color: transparent;
-  color: #cb0a31;
+  color: #f9f6f7;
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   border-radius: 5px;
@@ -10,7 +10,6 @@
 }
 
 .toobar__button:hover, .toobar__button:active {
-  background-color: #cb0a31;
-  color: #fafafa;
+  color: white;
 }
 /*# sourceMappingURL=ToobarButton.css.map */

@@ -15,20 +15,20 @@
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  background: #cb0a31;
+  background: #f9f6f7;
   cursor: pointer;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .hamburguerButton:hover, .hamburguerButton:active {
-  background-color: #ed0c39;
+  background-color: white;
 }
 
 .hamburguerButton .rbline {
   width: 30px;
   height: 3px;
-  background-color: #fafafa;
+  background-color: #313131;
   border-radius: 5px;
 }
 

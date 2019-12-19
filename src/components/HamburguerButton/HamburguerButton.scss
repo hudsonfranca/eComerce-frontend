@@ -14,7 +14,7 @@
 
   &:hover,
   &:active {
-    background-color: lighten($color: $secondaryColor, $amount: 7);
+    background-color: lighten($color: $secondaryColor, $amount: 10);
   }
 
   .rbline {

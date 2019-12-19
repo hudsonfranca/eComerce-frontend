@@ -14,24 +14,29 @@ function Navbar({ HbClick }) {
           <div className="hamburguer-button">
             <HamburguerButton click={HbClick} type="" />
           </div>
-          <div className="logo">MY LOGO</div>
+          <div className="logo">
+            <h1>LOGO</h1>
+          </div>
           <div className="search">
             <SearchInputToobar />
           </div>
           <div className="account">
             <ToobarButton icon="fas fa-user-alt" id="account" />
             <label htmlFor="account" className="label">
-              Minha Conta
+              Sign in
             </label>
           </div>
           <div className="favorites">
             <ToobarButton id="favorites" icon="fas fa-heart" />
             <label htmlFor="favorites" className="label">
-              Lista de desejos
+              Favorites
             </label>
           </div>
           <div className="cart">
             <ToobarButton id="cart" icon="fas fa-shopping-cart" />
+            <label htmlFor="cart" className="label">
+              Cart
+            </label>
           </div>
         </nav>
       </header>
