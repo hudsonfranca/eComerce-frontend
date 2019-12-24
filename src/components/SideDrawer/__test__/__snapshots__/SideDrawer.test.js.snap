@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideDrawer matches snapshot 1`] = `
+<div
+  className="sideDrawer undefined"
+  data-testid="SideDrawer"
+>
+  <button
+    className="hamburguerButton close"
+    type="button"
+  >
+    <div
+      className="rbline"
+    />
+    <div
+      className="rbline"
+    />
+    <div
+      className="rbline"
+    />
+  </button>
+  <div
+    className="sideDrawer-content"
+  />
+</div>
+`;
+
+exports[`matches snapshot 1`] = `
+<div
+  className="sideDrawer undefined"
+  data-testid="SideDrawer"
+>
+  <button
+    className="hamburguerButton close"
+    type="button"
+  >
+    <div
+      className="rbline"
+    />
+    <div
+      className="rbline"
+    />
+    <div
+      className="rbline"
+    />
+  </button>
+  <div
+    className="sideDrawer-content"
+  />
+</div>
+`;

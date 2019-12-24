@@ -1,3 +1,56 @@
+.hamburguerButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: #f9f6f7;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.hamburguerButton:hover, .hamburguerButton:active {
+  background-color: white;
+}
+
+.hamburguerButton .rbline {
+  width: 30px;
+  height: 3px;
+  background-color: #313131;
+  border-radius: 5px;
+}
+
+.hamburguerButton.close {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.hamburguerButton.close .rbline:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(8px, 8px);
+          transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburguerButton.close .rbline:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburguerButton.close .rbline:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(6px, -7px);
+          transform: rotate(-45deg) translate(6px, -7px);
+}
+
 .App-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,6 +88,8 @@
   background-color: #313131;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px;
+  -webkit-box-shadow: 0px 6px 16px 0px rgba(50, 50, 50, 0.73);
+          box-shadow: 0px 6px 16px 0px rgba(50, 50, 50, 0.73);
 }
 
 @media (min-width: 600px) {
@@ -94,8 +149,38 @@
   }
 }
 
+.App-header .toobar .search .searchInput {
+  width: 83%;
+  height: 40px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 0;
+  font-size: 1em;
+  border: 4px solid #f9f6f7;
+  border-right: none;
+}
+
+.App-header .toobar .search .searchInputButom {
+  width: 50px;
+  height: 40px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  color: rgba(0, 0, 0, 0.5);
+  border-left: none;
+  background-color: #f9f6f7;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.App-header .toobar .search .searchInputButom:hover {
+  color: #313131;
+  background-color: white;
+}
+
 .App-header .toobar label {
   display: none;
+  cursor: pointer;
 }
 
 @media (min-width: 900px) {
@@ -105,6 +190,82 @@
     color: rgba(0, 0, 0, 0.5);
     color: #f9f6f7;
   }
+}
+
+.App-header .toobar .cart .toobar__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: #f9f6f7;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.App-header .toobar .cart .toobar__button:hover, .App-header .toobar .cart .toobar__button:active {
+  color: white;
+}
+
+.App-header .toobar .account-mobile .toobar__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: #f9f6f7;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.App-header .toobar .account-mobile .toobar__button:hover, .App-header .toobar .account-mobile .toobar__button:active {
+  color: white;
+}
+
+@media (min-width: 900px) {
+  .App-header .toobar .account-mobile {
+    display: none;
+  }
+}
+
+.App-header .toobar .account-desktop {
+  display: none;
+}
+
+.App-header .toobar .account-desktop .toobar__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: #f9f6f7;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.App-header .toobar .account-desktop .toobar__button:hover, .App-header .toobar .account-desktop .toobar__button:active {
+  color: white;
+}
+
+@media (min-width: 900px) {
+  .App-header .toobar .account-desktop {
+    display: inline-block;
+  }
+}
+
+.App-header .toobar .favorites .toobar__button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: #f9f6f7;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.App-header .toobar .favorites .toobar__button:hover, .App-header .toobar .favorites .toobar__button:active {
+  color: white;
 }
 
 @media (min-width: 900px) {

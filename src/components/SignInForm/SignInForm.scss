@@ -1,0 +1,37 @@
+@import "../style/scss/button";
+@import "../style/scss/media";
+@import "../style/scss/variables";
+
+.signIn-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  position: relative;
+
+  .label {
+    color: $secondaryColor;
+    align-self: flex-start;
+    margin-left: 3%;
+  }
+
+  .signIn-form-input {
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0;
+    font-size: 1em;
+    border: 4px solid $secondaryColor;
+    border-right: none;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: $primaryColor;
+  }
+
+  .spiner-icon {
+    margin-top: 5%;
+  }
+}

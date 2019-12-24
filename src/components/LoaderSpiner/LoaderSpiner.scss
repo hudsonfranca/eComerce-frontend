@@ -1,0 +1,16 @@
+@import "../style/scss/variables";
+
+.spiner {
+  height: 30px;
+  width: 30px;
+  border: 4px solid darken($color: $primaryColor, $amount: 4);
+  border-left-color: $secondaryColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

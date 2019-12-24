@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { ToobarReducer } from "./ToobarReducer";
+import { SideDrawerReducer } from "./SideDrawerReducer";
+import { AuthReducer } from "./AuthReducer";
 
 const allReducers = combineReducers({
-  ToobarReducer
+  sideDrawerState: SideDrawerReducer,
+  auth: AuthReducer
 });
 
 export default allReducers;

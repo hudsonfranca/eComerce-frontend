@@ -1,4 +1,6 @@
 @import "../style/scss/variables";
+@import "../style/scss/HamburguerButton";
+@import "../style/scss/media";
 
 .sideDrawer {
   display: flex;
@@ -21,5 +23,9 @@
 
   .sideDrawer-content {
     flex: 1;
+    @include for-tablet-portrait-up {
+      width: 75%;
+      align-self: center;
+    }
   }
 }

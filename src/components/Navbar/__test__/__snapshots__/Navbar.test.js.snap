@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar matches snapshot 1`] = `
+<header
+  className="App-header"
+>
+  <nav
+    className="toobar"
+  >
+    <div
+      className="hamburguer-button"
+    >
+      <button
+        className="hamburguerButton"
+        type="button"
+      >
+        <div
+          className="rbline"
+        />
+        <div
+          className="rbline"
+        />
+        <div
+          className="rbline"
+        />
+      </button>
+    </div>
+    <div
+      className="logo"
+    >
+      <h1>
+        LOGO
+      </h1>
+    </div>
+    <div
+      className="search"
+    >
+      <input
+        className="searchInput"
+        onChange=""
+        type="text"
+      />
+      <button
+        className="searchInputButom"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-search fa-2x"
+        />
+      </button>
+    </div>
+    <div
+      className="account-mobile"
+    >
+      <button
+        className="toobar__button"
+        id="account"
+        type="button"
+      >
+        <i
+          className="fas fa-user-alt fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="account"
+      >
+        Sign in
+      </label>
+    </div>
+    <div
+      className="account-desktop"
+    >
+      <button
+        className="toobar__button"
+        id="account"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-user-alt fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="account-desktop"
+      >
+        Sign in
+      </label>
+    </div>
+    <div
+      className="favorites"
+    >
+      <button
+        className="toobar__button"
+        id="favorites"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-heart fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="favorites"
+      >
+        Favorites
+      </label>
+    </div>
+    <div
+      className="cart"
+    >
+      <button
+        className="toobar__button"
+        id="cart"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-shopping-cart fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="cart"
+      >
+        Cart
+      </label>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`matches snapshot 1`] = `
+<header
+  className="App-header"
+>
+  <nav
+    className="toobar"
+  >
+    <div
+      className="hamburguer-button"
+    >
+      <button
+        className="hamburguerButton"
+        type="button"
+      >
+        <div
+          className="rbline"
+        />
+        <div
+          className="rbline"
+        />
+        <div
+          className="rbline"
+        />
+      </button>
+    </div>
+    <div
+      className="logo"
+    >
+      <h1>
+        LOGO
+      </h1>
+    </div>
+    <div
+      className="search"
+    >
+      <input
+        className="searchInput"
+        onChange=""
+        type="text"
+      />
+      <button
+        className="searchInputButom"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-search fa-2x"
+        />
+      </button>
+    </div>
+    <div
+      className="account-mobile"
+    >
+      <button
+        className="toobar__button"
+        id="account"
+        type="button"
+      >
+        <i
+          className="fas fa-user-alt fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="account"
+      >
+        Sign in
+      </label>
+    </div>
+    <div
+      className="account-desktop"
+    >
+      <button
+        className="toobar__button"
+        id="account"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-user-alt fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="account-desktop"
+      >
+        Sign in
+      </label>
+    </div>
+    <div
+      className="favorites"
+    >
+      <button
+        className="toobar__button"
+        id="favorites"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-heart fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="favorites"
+      >
+        Favorites
+      </label>
+    </div>
+    <div
+      className="cart"
+    >
+      <button
+        className="toobar__button"
+        id="cart"
+        onClick=""
+        type="button"
+      >
+        <i
+          className="fas fa-shopping-cart fa-2x "
+        />
+      </button>
+      <label
+        className="label"
+        htmlFor="cart"
+      >
+        Cart
+      </label>
+    </div>
+  </nav>
+</header>
+`;
