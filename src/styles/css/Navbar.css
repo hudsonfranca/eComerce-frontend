@@ -63,14 +63,8 @@
   width: 100%;
   height: 120px;
   position: fixed;
+  top: 0;
   z-index: 11;
-}
-
-@media (min-width: 600px) {
-  .App-header {
-    height: 65px;
-    padding: 0;
-  }
 }
 
 .App-header .toobar {

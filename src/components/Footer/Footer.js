@@ -4,24 +4,24 @@ import "../../styles/css/Footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <ul>
+      <ul className="footer-list">
         <li>Home</li>
         <li>About</li>
-        <li>contact</li>
+        <li>Contact</li>
         <li>Account</li>
       </ul>
-      <ul>
+      <ul className="footer-list">
         <li>
-          <i className="fab fa-facebook-square" />
+          <i className="fab fa-facebook-square fa-3x" />
         </li>
         <li>
-          <i className="fab fa-twitter-square" />
+          <i className="fab fa-twitter-square fa-3x" />
         </li>
         <li>
-          <i className="fab fa-instagram" />
+          <i className="fab fa-instagram fa-3x" />
         </li>
         <li>
-          <i className="fab fa-youtube" />
+          <i className="fab fa-youtube fa-3x" />
         </li>
       </ul>
     </footer>
