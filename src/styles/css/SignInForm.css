@@ -1,0 +1,61 @@
+.button {
+  width: 25%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: #fafbfc;
+  color: #313131;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.signIn-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  position: relative;
+}
+
+.signIn-form .signIn-form-title {
+  color: #fafbfc;
+  padding-bottom: 50px;
+}
+
+.signIn-form .label {
+  color: #fafbfc;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 3%;
+}
+
+.signIn-form .signIn-form-input {
+  width: 95%;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1em;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #313131;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.signIn-form .spiner-icon {
+  margin-top: 5%;
+}
+/*# sourceMappingURL=SignInForm.css.map */

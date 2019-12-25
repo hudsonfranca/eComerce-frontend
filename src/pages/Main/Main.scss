@@ -1,0 +1,16 @@
+@import "../../styles/css/Main.css";
+@import "../../styles/scss/variables";
+@import "../../styles/scss/media";
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+
+  @include for-phone-only {
+    top: 120px;
+    height: auto;
+  }
+}

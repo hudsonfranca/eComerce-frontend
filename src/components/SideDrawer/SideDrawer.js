@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { sideDrawerClose } from "../../actions/SideDrawer";
-import "../style/css/SideDrawer.css";
+import "../../styles/css/SideDrawer.css";
 
 export function SideDrawer({ isOpen, sideDrawerClose, content }) {
   return (

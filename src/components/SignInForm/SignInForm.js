@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import "../style/css/SignInForm.css";
+import "../../styles/css/SignInForm.css";
 import LoadSpiner from "../LoaderSpiner/LoaderSpiner";
 
 import {
@@ -8,6 +8,7 @@ import {
   loginUserSuccess,
   loginUserRequest
 } from "../../actions/Auth/index";
+import { sideDrawerClose } from "../../actions/SideDrawer";
 import api from "../../services/api";
 
 export function SignInForm({
@@ -17,7 +18,8 @@ export function SignInForm({
   statusText,
   loginUserRequest,
   loginUserSuccess,
-  loginUserFailure
+  loginUserFailure,
+  sideDrawerClose
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,9 +35,11 @@ export function SignInForm({
       });
 
       if (response) {
+        sideDrawerClose();
         loginUserSuccess(response.data.access_token);
       }
     } catch (err) {
+      console.log(err);
       loginUserFailure(err);
     }
   }
@@ -43,6 +47,7 @@ export function SignInForm({
   return (
     <>
       <form onSubmit={handleSubmit} className="signIn-form">
+        <h1 className="signIn-form-title">Sign In</h1>
         <label htmlFor="email" className="label">
           Email Address
         </label>
@@ -85,7 +90,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loginUserFailure: err => dispatch(loginUserFailure(err)),
   loginUserSuccess: token => dispatch(loginUserSuccess(token)),
-  loginUserRequest: () => dispatch(loginUserRequest())
+  loginUserRequest: () => dispatch(loginUserRequest()),
+  sideDrawerClose: () => dispatch(sideDrawerClose())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);

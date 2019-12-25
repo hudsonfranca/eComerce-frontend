@@ -1,0 +1,16 @@
+@import "../scss/variables";
+
+.button {
+  width: 25%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: $secondaryColor;
+  color: $primaryColor;
+  transition: 0.5s ease-in-out;
+
+  &:hover,
+  &:active {
+  }
+}

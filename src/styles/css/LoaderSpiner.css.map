@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAC;EACN,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,OAAyC;EAC3D,iBAAiB,ECDF,OAAO;EDEtB,aAAa,EAAE,GAAG;EAClB,SAAS,EAAE,uBAAuB;CACnC;;AAED,UAAU,CAAV,IAAU;EACR,EAAE;IACA,SAAS,EAAE,cAAc",
+    "sources": [
+        "../../components/LoaderSpiner/LoaderSpiner.scss",
+        "../scss/_variables.scss"
+    ],
+    "names": [],
+    "file": "LoaderSpiner.css"
+}

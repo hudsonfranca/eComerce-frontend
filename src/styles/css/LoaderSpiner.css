@@ -1,0 +1,24 @@
+.spiner {
+  height: 30px;
+  width: 30px;
+  border: 4px solid #272727;
+  border-left-color: #fafbfc;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=LoaderSpiner.css.map */

@@ -1,6 +1,6 @@
-@import "../style/scss/button";
-@import "../style/scss/media";
-@import "../style/scss/variables";
+@import "../../styles/scss/variables";
+@import "../../styles/scss/media";
+@import "../../styles/scss/button";
 
 .signIn-form {
   display: flex;
@@ -11,6 +11,12 @@
   height: 100%;
   padding: 5%;
   position: relative;
+  // background-color: $primaryColor;
+
+  .signIn-form-title {
+    color: $secondaryColor;
+    padding-bottom: 50px;
+  }
 
   .label {
     color: $secondaryColor;
@@ -22,13 +28,17 @@
     width: 95%;
     height: 40px;
     border-radius: 5px;
-    padding: 0;
+    padding: 10px;
     font-size: 1em;
-    border: 4px solid $secondaryColor;
-    border-right: none;
+
     margin-top: 10px;
     margin-bottom: 30px;
     color: $primaryColor;
+    transition: 0.5s ease-in-out;
+
+    &:hover,
+    &:active {
+    }
   }
 
   .spiner-icon {
