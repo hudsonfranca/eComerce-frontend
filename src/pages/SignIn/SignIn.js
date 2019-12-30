@@ -1,5 +1,5 @@
 import React from "react";
-import SignInForm from "../../components/SignInForm/SignInForm";
+import SignInFormConnect from "../../components/SignInForm/SignInForm";
 import "../../styles/css/SignIn.css";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export default function SignIn({}) {
   return (
     <div className="signin-page">
       <div className="signin-page-content">
-        <SignInForm />
+        <SignInFormConnect />
       </div>
       <div className="signin-page-create-account-link">
         <h2>Don't have an account?</h2>

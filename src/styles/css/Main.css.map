@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "AAAA,OAAO,CAAP,6DAAO;AAIP,AAAA,aAAa,CAAC;EACZ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACb",
     "sources": [
-        "../../pages/Main/Main.scss",
+        "../../components/Main/Main.scss",
         "../scss/_variables.scss",
         "../scss/_media.scss"
     ],

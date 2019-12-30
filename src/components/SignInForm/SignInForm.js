@@ -4,9 +4,9 @@ import "../../styles/css/SignInForm.css";
 import LoadSpiner from "../LoaderSpiner/LoaderSpiner";
 
 import {
-  loginUserFailure,
-  loginUserSuccess,
-  loginUserRequest
+  loginCustomerFailure,
+  loginCustomerSuccess,
+  loginCustomerRequest
 } from "../../actions/Auth/index";
 import { sideDrawerClose } from "../../actions/SideDrawer";
 import api from "../../services/api";
@@ -16,9 +16,9 @@ export function SignInForm({
   isAuthenticated,
   isAuthenticating,
   statusText,
-  loginUserRequest,
-  loginUserSuccess,
-  loginUserFailure,
+  loginCustomerRequest,
+  loginCustomerSuccess,
+  loginCustomerFailure,
   sideDrawerClose
 }) {
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ export function SignInForm({
     evt.preventDefault();
 
     try {
-      loginUserRequest();
+      loginCustomerRequest();
       const response = await api.post("/api/sessions", {
         email_address: email,
         password
@@ -36,11 +36,11 @@ export function SignInForm({
 
       if (response) {
         sideDrawerClose();
-        loginUserSuccess(response.data.access_token);
+        loginCustomerSuccess(response.data.access_token);
       }
     } catch (err) {
       console.log(err);
-      loginUserFailure(err);
+      loginCustomerFailure(err);
     }
   }
 
@@ -51,6 +51,7 @@ export function SignInForm({
         <label htmlFor="email" className="label">
           Email Address
         </label>
+
         <input
           type="email"
           name="email"
@@ -88,9 +89,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loginUserFailure: err => dispatch(loginUserFailure(err)),
-  loginUserSuccess: token => dispatch(loginUserSuccess(token)),
-  loginUserRequest: () => dispatch(loginUserRequest()),
+  loginCustomerFailure: err => dispatch(loginCustomerFailure(err)),
+  loginCustomerSuccess: token => dispatch(loginCustomerSuccess(token)),
+  loginCustomerRequest: () => dispatch(loginCustomerRequest()),
   sideDrawerClose: () => dispatch(sideDrawerClose())
 });
 

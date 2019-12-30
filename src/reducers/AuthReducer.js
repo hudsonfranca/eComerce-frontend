@@ -8,22 +8,37 @@ const initialState = {
 
 export const AuthReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case "LOGIN_USER_REQUEST":
+    case "LOGIN_CUSTOMER_REQUEST":
       return {
         ...state,
         isAuthenticating: true,
         statusText: null
       };
-    case "LOGIN_USER_SUCCESS":
+    case "CREATE_ACCOUNT_REQUEST":
+      return {
+        ...state,
+        isAuthenticating: true,
+        statusText: null
+      };
+    case "LOGIN_CUSTOMER_SUCCESS":
       return {
         ...state,
         isAuthenticating: false,
         isAuthenticated: true,
         token: payload.token,
-        userName: payload.name,
+        customerName: payload.userName,
         statusText: "You have been successfully logged in."
       };
-    case "LOGIN_USER_FAILURE":
+    case "CREATE_ACCOUNT_SUCCESS":
+      return {
+        ...state,
+        isAuthenticating: false,
+        isAuthenticated: true,
+        token: payload.token,
+        customerName: payload.customerName,
+        statusText: "You have been successfully logged in."
+      };
+    case "LOGIN_CUSTOMER_FAILURE":
       return {
         ...state,
         isAuthenticating: false,
@@ -32,7 +47,16 @@ export const AuthReducer = (state = initialState, { type, payload }) => {
         userName: null,
         statusText: `Authentication Error: ${payload.status} ${payload.statusText}`
       };
-    case "LOGOUT_USER":
+    case "CREATE_ACCOUNT_FAILURE":
+      return {
+        ...state,
+        isAuthenticating: false,
+        isAuthenticated: false,
+        token: null,
+        userName: null,
+        statusText: `Authentication Error: ${payload.status} ${payload.statusText}`
+      };
+    case "LOGOUT_CUSTOMER":
       return {
         ...state,
         isAuthenticated: false,
