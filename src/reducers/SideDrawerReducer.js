@@ -1,5 +1,5 @@
 import React from "react";
-import SignInForm from "../components/SignInForm/SignInForm";
+// import SignInForm from "../components/SignInForm/SignInForm";
 
 export const SideDrawerReducer = (state = {}, { type }) => {
   switch (type) {
@@ -13,8 +13,8 @@ export const SideDrawerReducer = (state = {}, { type }) => {
     case "mobileAccount":
       return {
         ...state,
-        isOpen: "open",
-        content: <SignInForm />
+        isOpen: "open"
+        // content: <SignInForm />
       };
 
     case "close":

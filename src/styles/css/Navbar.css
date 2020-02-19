@@ -210,31 +210,6 @@
   color: white;
 }
 
-.App-header .toobar .account-mobile .toobar__button {
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  color: #fafbfc;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.App-header .toobar .account-mobile .toobar__button:hover, .App-header .toobar .account-mobile .toobar__button:active {
-  color: white;
-}
-
-@media (min-width: 900px) {
-  .App-header .toobar .account-mobile {
-    display: none;
-  }
-}
-
-.App-header .toobar .account-desktop {
-  display: none;
-}
-
 .App-header .toobar .account-desktop .toobar__button {
   width: 40px;
   height: 40px;

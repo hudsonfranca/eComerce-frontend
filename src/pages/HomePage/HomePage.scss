@@ -1,0 +1,12 @@
+@import "../../styles/scss/variables";
+.homePage {
+  width: 100%;
+  min-height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: darken($color: $backgroundPageColor, $amount: 20);
+}

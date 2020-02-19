@@ -1,14 +1,76 @@
 import React from "react";
-import SignInFormConnect from "../../components/SignInForm/SignInForm";
 import "../../styles/css/SignIn.css";
 import { Link } from "react-router-dom";
+import { Formik, Form } from "formik";
+import { Button } from "@material-ui/core";
+import * as yup from "yup";
+import TextField from "../../components/TextField/TextField";
+import PasswordField from "../../components/PasswordField/PasswordField";
+import api from "../../services/api";
 
-export default function SignIn({}) {
+const validationSchema = yup.object({
+  email_address: yup
+    .string()
+    .email("Email address must be a valid email")
+    .lowercase()
+    .required("Email address is a required field"),
+  password: yup
+    .string()
+    .min(8)
+    .required("Password is a required field")
+});
+
+export default function SignIn({ history }) {
   return (
-    <div className="signin-page">
-      <div className="signin-page-content">
-        <SignInFormConnect />
-      </div>
+    <div className="signIn-page">
+      <Formik
+        initialValues={{
+          email_address: "",
+          password: ""
+        }}
+        validationSchema={validationSchema}
+        onSubmit={async (data, { setSubmitting, resetForm }) => {
+          try {
+            const response = await api.post("/api/sessions", {
+              email_address: data.email_address,
+              password: data.password
+            });
+            if (response) {
+              localStorage.setItem("authorization", response.data.access_token);
+              setSubmitting(false);
+              resetForm();
+              history.push("/");
+            }
+          } catch (err) {
+            console.log(err);
+          }
+        }}
+      >
+        {({ values, errors, isSubmitting, touched }) => (
+          <Form className="signIn-page-form">
+            <h1 className="sign-form-title">Sign In</h1>
+            <TextField
+              name="email_address"
+              type="email"
+              id="email_address"
+              label=" Email address"
+              icon="email"
+            />
+
+            <PasswordField name="password" id="password" label="Password" />
+
+            <Button
+              variant="contained"
+              className="btn"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              Sign In
+            </Button>
+          </Form>
+        )}
+      </Formik>
+
       <div className="signin-page-create-account-link">
         <h2>Don't have an account?</h2>
         <h4>Here are some of the benefits you’ll enjoy:</h4>

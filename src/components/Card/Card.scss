@@ -1,0 +1,38 @@
+@import "../../styles/scss/variables";
+
+.card {
+  width: 270px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.52);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 17px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .favorite {
+    align-self: flex-end;
+  }
+
+  img {
+    width: 190px;
+    height: 190px;
+  }
+
+  .title {
+    color: #666666;
+  }
+
+  .price {
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/css/CreateAccount.css";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
-import { Button} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import api from "../../services/api";
 import MytextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
@@ -17,7 +17,6 @@ const validationSchema = yup.object({
     .required("Email address is a required field"),
   password: yup
     .string()
-    .max(8, "Password must be at most 8 characters")
     .min(8)
     .required("Password is a required field"),
   phone_number: yup.string().required(),
@@ -29,7 +28,6 @@ const validationSchema = yup.object({
 });
 
 export default function CreateAccount({}) {
-  
   return (
     <Formik
       initialValues={{
@@ -38,8 +36,7 @@ export default function CreateAccount({}) {
         email_address: "",
         password: "",
         phone_number: "",
-        cpf: "",
-      
+        cpf: ""
       }}
       validationSchema={validationSchema}
       onSubmit={async (data, { setSubmitting, resetForm }) => {
@@ -52,6 +49,11 @@ export default function CreateAccount({}) {
             phone_number: data.phone_number,
             cpf: data.cpf
           });
+          if (response) {
+            localStorage.setItem("authorization", response.data.access_token);
+            setSubmitting(false);
+            resetForm();
+          }
         } catch (err) {
           console.log(err);
         }
@@ -86,12 +88,7 @@ export default function CreateAccount({}) {
               icon="email"
             />
 
-            <PasswordField
-              name="password"
-              id="password"
-              label="Password"
-              
-            />
+            <PasswordField name="password" id="password" label="Password" />
 
             <MytextField
               name="phone_number"
@@ -102,12 +99,11 @@ export default function CreateAccount({}) {
             />
             <label htmlFor="cpf" className="label" />
             <MytextField name="cpf" id="cpf" type="input" label="CPF" />
-            <Button variant="contained" type="submit" disabled={isSubmitting}>
+            <Button variant="contained" type="submit"  disabled={isSubmitting}>
               Create an Account
             </Button>
             <br />
             <br />
-           
           </Form>
 
           <div className="create-account-sidebar">

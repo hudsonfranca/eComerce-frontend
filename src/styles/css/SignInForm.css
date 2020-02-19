@@ -35,13 +35,6 @@
   padding-bottom: 50px;
 }
 
-.signIn-form .label {
-  color: #fafbfc;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  margin-left: 3%;
-}
-
 .signIn-form .signIn-form-input {
   width: 95%;
   height: 40px;

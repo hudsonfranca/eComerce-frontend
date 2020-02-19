@@ -1105,6 +1105,17 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
 
+"@material-ui/lab@^4.0.0-alpha.43":
+  version "4.0.0-alpha.43"
+  resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-4.0.0-alpha.43.tgz#4bc673924cf1922750d70adcbb71414d3c18ff23"
+  integrity sha512-UxsQggLpwr5HEZU+YRZkRVtpt5Cp27VwfYZz1InyGNWrtx9WovAYxEyR1xDvp/cmKhnSPCecVnqmb3dtLTpDqQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@material-ui/utils" "^4.7.1"
+    clsx "^1.0.4"
+    prop-types "^15.7.2"
+    react-is "^16.8.0"
+
 "@material-ui/styles@^4.7.1":
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.7.1.tgz#48fa70f06441c35e301a9c4b6c825526a97b7a29"
@@ -6354,10 +6365,10 @@ jss-plugin-vendor-prefixer@^10.0.0:
     css-vendor "^2.0.7"
     jss "10.0.1"
 
-jss@10.0.1, jss@^10.0.0:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.1.tgz#1275f20a7ec306baf5b357e7d17a18a6f1e64eb2"
-  integrity sha512-0LlP0XJmjxG+i6RlXbUdP1oA+idpxB8sZ2jyoPnJxpsaP4SAZaODLECqWkOuj79WE94lLOpvjLHwTT2xTanDxA==
+jss@10.0.0, jss@10.0.1, jss@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0.tgz#998d5026c02accae15708de83bd6ba57bac977d2"
+  integrity sha512-TPpDFsiBjuERiL+dFDq8QCdiF9oDasPcNqCKLGCo/qED3fNYOQ8PX2lZhknyTiAt3tZrfOFbb0lbQ9lTjPZxsQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
     csstype "^2.6.5"

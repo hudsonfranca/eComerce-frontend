@@ -30,7 +30,7 @@ const PasswordField = ({ label, placeholder, ...props }) => {
   const [field, meta] = useField(props);
   const classes = useStyles();
   const errorText = meta.error && meta.touched ? meta.error : "";
-  const [passwordIsMasked, setPasswordIsMasked] = useState(false);
+  const [passwordIsMasked, setPasswordIsMasked] = useState(true);
   return (
     <TextField
       placeholder={placeholder}

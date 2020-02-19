@@ -1,4 +1,4 @@
-.signin-page {
+.signIn-page {
   width: 100%;
   height: 100%;
   display: -ms-grid;
@@ -7,23 +7,22 @@
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
-  grid-gap: 50px;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  padding-top: 5%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-image: url("../../assets/smartphone.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-clip: border-box;
   position: relative;
   z-index: 1;
-  padding-bottom: 30px;
 }
 
 @media (max-width: 599px) {
-  .signin-page {
+  .signIn-page {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -35,7 +34,7 @@
 }
 
 @media (min-width: 600px) {
-  .signin-page {
+  .signIn-page {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -47,7 +46,7 @@
 }
 
 @media (min-width: 900px) {
-  .signin-page {
+  .signIn-page {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
@@ -57,23 +56,47 @@
   }
 }
 
-.signin-page::after {
+.signIn-page::after {
   content: "";
   width: 100%;
   height: 100%;
   background-color: #313131;
   position: absolute;
   top: 0;
-  opacity: 0.7;
+  opacity: 0.9;
   z-index: -1;
 }
 
-.signin-page .signin-page-content {
+.signIn-page .signIn-page-form {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.signin-page .signin-page-create-account-link {
+.signIn-page .signIn-page-form .btn {
+  margin-top: 40px;
+}
+
+.signIn-page .signIn-page-form .sign-form-title {
+  color: #fafbfc;
+  padding-bottom: 20px;
+}
+
+.signIn-page .signin-page-create-account-link {
   color: #fafbfc;
   line-height: 1.5rem;
   margin-top: 130px;
@@ -81,21 +104,21 @@
   width: 100%;
 }
 
-.signin-page .signin-page-create-account-link ul li {
+.signIn-page .signin-page-create-account-link ul li {
   padding: 20px;
 }
 
-.signin-page .signin-page-create-account-link ul li i {
+.signIn-page .signin-page-create-account-link ul li i {
   margin-right: 6px;
 }
 
-.signin-page .signin-page-create-account-link a {
+.signIn-page .signin-page-create-account-link a {
   color: #fafbfc;
   -webkit-transition: 0.3s ease-in;
   transition: 0.3s ease-in;
 }
 
-.signin-page .signin-page-create-account-link a:active, .signin-page .signin-page-create-account-link a:hover {
+.signIn-page .signin-page-create-account-link a:active, .signIn-page .signin-page-create-account-link a:hover {
   text-decoration: underline;
 }
 /*# sourceMappingURL=SignIn.css.map */

@@ -34,19 +34,6 @@ export function Navbar({ mobileCategories, mobileAccount }) {
               <i className="fas fa-search fa-2x" />
             </button>
           </div>
-          <div className="account-mobile">
-            <button
-              type="button"
-              className="toobar__button"
-              id="account"
-              onClick={mobileAccount}
-            >
-              <i className="fas fa-user-alt fa-2x " />
-            </button>
-            <label htmlFor="account" className="label">
-              Sign in
-            </label>
-          </div>
           <div className="account-desktop">
             <Link to="/signin">
               <button type="button" className="toobar__button" id="account">
