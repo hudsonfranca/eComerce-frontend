@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import "../../styles/css/SignIn.css";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
@@ -7,6 +7,7 @@ import * as yup from "yup";
 import TextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
 import api from "../../services/api";
+import { UserContext } from "../../routes/UserContext";
 
 const validationSchema = yup.object({
   email_address: yup
@@ -21,6 +22,11 @@ const validationSchema = yup.object({
 });
 
 export default function SignIn({ history }) {
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    document.title = "Sign in";
+  }, []);
   return (
     <div className="signIn-page">
       <Formik
@@ -37,6 +43,7 @@ export default function SignIn({ history }) {
             });
             if (response) {
               localStorage.setItem("authorization", response.data.access_token);
+              setUser(true);
               setSubmitting(false);
               resetForm();
               history.push("/");

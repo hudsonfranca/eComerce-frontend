@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/css/CreateAccount.css";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
@@ -28,6 +28,9 @@ const validationSchema = yup.object({
 });
 
 export default function CreateAccount({}) {
+  useEffect(() => {
+    document.title = "Create Account";
+  }, []);
   return (
     <Formik
       initialValues={{
@@ -99,7 +102,7 @@ export default function CreateAccount({}) {
             />
             <label htmlFor="cpf" className="label" />
             <MytextField name="cpf" id="cpf" type="input" label="CPF" />
-            <Button variant="contained" type="submit"  disabled={isSubmitting}>
+            <Button variant="contained" type="submit" disabled={isSubmitting}>
               Create an Account
             </Button>
             <br />
