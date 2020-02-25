@@ -95,18 +95,21 @@ export default function CreateAccount({}) {
 
             <MytextField
               name="phone_number"
-              ttype="input"
+              type="input"
               id="phone_number"
               label="Phone number"
               icon="phone"
             />
             <label htmlFor="cpf" className="label" />
             <MytextField name="cpf" id="cpf" type="input" label="CPF" />
-            <Button variant="contained" type="submit" disabled={isSubmitting}>
+            <Button
+              variant="contained"
+              className="submit_button"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Create an Account
             </Button>
-            <br />
-            <br />
           </Form>
 
           <div className="create-account-sidebar">

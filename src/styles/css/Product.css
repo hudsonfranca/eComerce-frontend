@@ -3,8 +3,8 @@
   min-height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr auto;
+      grid-template-rows: 1fr 1fr auto;
   -ms-grid-columns: 1.5fr 2fr;
       grid-template-columns: 1.5fr 2fr;
   color: #313131;
@@ -32,13 +32,13 @@
 
 @media (min-width: 600px) {
   .productContainer {
-        grid-template-areas: "imgView prodTitle" "buyInfo buyInfo";
+        grid-template-areas: "imgView prodTitle" "buyInfo buyInfo" "cardCarousel cardCarousel";
   }
 }
 
 @media (min-width: 900px) {
   .productContainer {
-        grid-template-areas: "imgView prodTitle" "imgView buyInfo";
+        grid-template-areas: "imgView prodTitle" "imgView buyInfo" "cardCarousel cardCarousel";
   }
 }
 
@@ -135,5 +135,12 @@
             order: 3;
     height: 100%;
   }
+}
+
+.productContainer .card_carousel {
+  grid-area: cardCarousel;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
 }
 /*# sourceMappingURL=Product.css.map */

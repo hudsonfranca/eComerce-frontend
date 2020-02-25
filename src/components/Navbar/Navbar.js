@@ -39,7 +39,6 @@ export function Navbar({ mobileCategories, mobileAccount }) {
               <button type="button" className="toobar__button" id="account">
                 <i className="fas fa-user-alt fa-2x " />
               </button>
-
               <label htmlFor="account-desktop" className="label">
                 Sign in
               </label>
@@ -57,7 +56,7 @@ export function Navbar({ mobileCategories, mobileAccount }) {
             </Link>
           </div>
           <div className="cart">
-            <Link to="cart">
+            <Link to="/cart">
               <button type="button" className="toobar__button" id="cart">
                 <i className="fas fa-shopping-cart fa-2x " />
               </button>

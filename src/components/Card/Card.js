@@ -28,23 +28,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Card({
-  image,
-  title,
-  price,
-  id,
-  status,
-  handleClick,
-  userAuthenticated
-}) {
+export default function Card({ image, title, price, id, status, handleClick }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClickAddToCart = async event => {
-    if (!userAuthenticated) {
+    if (!sessionStorage.getItem("authorization")) {
       return setAnchorEl(event.currentTarget);
     } else {
-      const auth = await localStorage.getItem("authorization");
+      const auth = await sessionStorage.getItem("authorization");
       const { data } = await api.post(`/api/product/${id}/cart`, null, {
         headers: {
           authorization: `Bearer ${auth}`

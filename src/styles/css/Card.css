@@ -2,12 +2,10 @@
   width: 270px;
   height: 470px;
   background-color: white;
-  -webkit-box-shadow: 0px 1px 11px 0px rgba(50, 50, 50, 0.75);
-          box-shadow: 0px 1px 11px 0px rgba(50, 50, 50, 0.75);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+          box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
   margin-bottom: 17px;
   padding: 10px;
   display: -webkit-box;
@@ -24,11 +22,6 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-}
-
-.card_container:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .card_container .cartAdd {
@@ -56,6 +49,11 @@
   text-align: center;
 }
 
+.card_container .card:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .card_container .card .favorite {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -64,9 +62,7 @@
 .card_container .card img {
   width: 190px;
   height: 190px;
-}
-
-.card_container .card .title {
-  color: #666666;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 /*# sourceMappingURL=Card.css.map */

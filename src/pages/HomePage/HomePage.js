@@ -1,10 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "../../components";
 import "../../styles/css/HomePage.css";
-import sale from "../../assets/21910.jpg";
+import baner1 from "../../assets/baner1.webp";
+import baner2 from "../../assets/baner2.webp";
+import baner3 from "../../assets/baner3.webp";
+import baner4 from "../../assets/baner4.webp";
+import baner5 from "../../assets/baner5.webp";
 import api from "../../services/api";
-import { UserContext } from "../../routes/UserContext";
+import { Carousel } from "react-responsive-carousel";
 
 export default function HomePage({ history }) {
   const [products, setProducts] = useState([]);
@@ -22,15 +26,30 @@ export default function HomePage({ history }) {
     history.push(`/product/${id}`);
   }
 
-  const { user, setUser } = useContext(UserContext);
-
   return (
     <div className="homePage">
-      <img
-        src={sale}
-        alt="sale"
-        style={{ width: "100%", height: "5%", borderRadius: "5px" }}
-      />
+      <Carousel
+        showThumbs={false}
+        autoPlay
+        infiniteLoop={true}
+        showStatus={false}
+      >
+        <div>
+          <img src={baner1} />
+        </div>
+        <div>
+          <img src={baner2} />
+        </div>
+        <div>
+          <img src={baner3} />
+        </div>
+        <div>
+          <img src={baner4} />
+        </div>
+        <div>
+          <img src={baner5} />
+        </div>
+      </Carousel>
       {products &&
         products.map(prod => (
           <Card
@@ -41,7 +60,6 @@ export default function HomePage({ history }) {
             id={prod.id}
             status={prod.status}
             handleClick={handleCardClick}
-            userAuthenticated={user}
           />
         ))}
     </div>

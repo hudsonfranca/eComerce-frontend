@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import SignIn from "../pages/SignIn/SignIn";
 import CreateAccount from "../pages/CreateAccount/CreateAccount";
-import { HomePage, Product } from "../pages";
+import { HomePage, Product, AddressPage } from "../pages";
 import Favorites from "../pages/Favorites/Favorites";
 import Cart from "../pages/Cart/Cart";
 import { UserContext } from "./UserContext";
@@ -22,6 +22,7 @@ export default function Routes() {
         <Route path="/favorites" component={Favorites} />
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={Product} />
+        <Route path="/address" component={AddressPage} />
       </UserContext.Provider>
     </Switch>
   );
