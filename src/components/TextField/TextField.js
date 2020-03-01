@@ -27,7 +27,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MytextField = ({ type, label, placeholder, icon, ...props }) => {
+const MytextField = ({
+  type,
+  label,
+  placeholder,
+  icon,
+  InputProps,
+  ...props
+}) => {
   const [field, meta] = useField(props);
   const classes = useStyles();
   const errorText = meta.error && meta.touched ? meta.error : "";
@@ -57,6 +64,7 @@ const MytextField = ({ type, label, placeholder, icon, ...props }) => {
       className={classes.textField}
       InputProps={{
         className: classes.multilineColor,
+        inputComponent: InputProps,
         endAdornment: (
           <InputAdornment position="end">
             {icon && customIcon(icon)}

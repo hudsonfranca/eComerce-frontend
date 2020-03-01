@@ -6,6 +6,7 @@ import { Button } from "@material-ui/core";
 import api from "../../services/api";
 import MytextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
+import { Cpf, Phone } from "../../components/NumberFormat";
 
 const validationSchema = yup.object({
   first_name: yup.string().required("First name is a required field"),
@@ -99,9 +100,16 @@ export default function CreateAccount({}) {
               id="phone_number"
               label="Phone number"
               icon="phone"
+              InputProps={Phone}
             />
             <label htmlFor="cpf" className="label" />
-            <MytextField name="cpf" id="cpf" type="input" label="CPF" />
+            <MytextField
+              name="cpf"
+              id="cpf"
+              type="input"
+              label="CPF"
+              InputProps={Cpf}
+            />
             <Button
               variant="contained"
               className="submit_button"

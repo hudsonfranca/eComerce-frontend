@@ -1,0 +1,81 @@
+.checkout {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  background-color: #313131;
+}
+
+.checkout .checkout_pages {
+  width: 80%;
+  padding: 5%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #313131;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 19px 0px #fafbfc;
+          box-shadow: 3px 3px 19px 0px #fafbfc;
+  background-color: #3e3e3e;
+}
+
+@media (max-width: 599px) {
+  .checkout .checkout_pages {
+    width: 100%;
+    padding: 5px;
+    height: 100%;
+  }
+}
+
+.checkout .checkout_pages .stepper {
+  width: 100%;
+  height: 100%;
+}
+
+.checkout .checkout_pages .step_buttons {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 599px) {
+  .checkout .checkout_pages .step_buttons {
+    width: 100%;
+    height: 50%;
+  }
+}
+/*# sourceMappingURL=Checkout.css.map */

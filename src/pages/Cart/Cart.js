@@ -68,7 +68,7 @@ export default function Cart({ history }) {
     if (!sessionStorage.getItem("authorization")) {
       history.push("/signin");
     } else {
-      history.push("/address");
+      history.push(`/sheckout`);
     }
   }
 
