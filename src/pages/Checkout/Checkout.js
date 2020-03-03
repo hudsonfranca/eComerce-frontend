@@ -7,11 +7,13 @@ import {
   Done
 } from "@material-ui/icons";
 import AddressForm from "./AddressForm";
+import PaymentForm from "./PaymentForm";
+import Review from "./Review";
 import { Steper } from "../../components";
 import "../../styles/css/Checkout.css";
 
 function getSteps() {
-  return ["Shipping address", "Payment method", "Checkout"];
+  return ["Shipping address", "Payment details", "Review your order"];
 }
 
 const useStyles = makeStyles(theme => ({
@@ -35,11 +37,15 @@ export default function Checkout() {
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
   const [country, setCountry] = useState("");
-  const [state, seState] = useState("");
+  const [state, setState] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [lastName, seLastName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [cardNumber, setCardNumber] = useState();
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCvv] = useState();
 
-  const values = {
+  const addressValues = {
     addressLine,
     city,
     zip,
@@ -47,6 +53,13 @@ export default function Checkout() {
     state,
     firstName,
     lastName
+  };
+
+  const paymentValues = {
+    nameOnCard,
+    cardNumber,
+    expiryDate,
+    cvv
   };
 
   const steps = getSteps();
@@ -108,14 +121,22 @@ export default function Checkout() {
     } else if (e.target.name === "country") {
       setCountry(e.target.value);
     } else if (e.target.name === "state") {
-      seState(e.target.value);
+      setState(e.target.value);
     } else if (e.target.name === "firstName") {
       setFirstName(e.target.value);
     } else if (e.target.name === "lastName") {
-      seLastName(e.target.value);
+      setLastName(e.target.value);
+    } else if (e.target.name === "nameOnCard") {
+      setNameOnCard(e.target.value);
+    } else if (e.target.name === "cardNumber") {
+      setCardNumber(e.target.value);
+    } else if (e.target.name === "expiryDate") {
+      setExpiryDate(e.target.value);
+    } else if (e.target.name === "cvv") {
+      setCvv(e.target.value);
     }
   };
-  console.log(activeStep);
+
   return (
     <div className="checkout">
       <div className="checkout_pages">
@@ -132,12 +153,25 @@ export default function Checkout() {
           switch (activeStep) {
             case 0:
               return (
-                <AddressForm handleChange={handleChange} values={values} />
+                <AddressForm
+                  handleChange={handleChange}
+                  values={addressValues}
+                />
               );
             case 1:
-              return <h1>Payment method</h1>;
+              return (
+                <PaymentForm
+                  handleChange={handleChange}
+                  values={paymentValues}
+                />
+              );
             case 2:
-              return <h1>Checkout</h1>;
+              return (
+                <Review
+                  addressValues={addressValues}
+                  paymentValues={paymentValues}
+                />
+              );
             case 3:
               return <h1>Success</h1>;
             default:

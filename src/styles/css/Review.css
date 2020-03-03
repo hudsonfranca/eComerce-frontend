@@ -1,0 +1,113 @@
+.review_checkout {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto 2fr 1fr;
+      grid-template-rows: auto 2fr 1fr;
+}
+
+.review_checkout .review_products {
+  width: 100%;
+  height: 100%;
+}
+
+.review_checkout .review_products ul {
+  width: 100%;
+  height: 100%;
+}
+
+.review_checkout .review_products ul li {
+  color: #fafbfc;
+  width: 80%;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: center;
+}
+
+.review_checkout .review_products ul li strong {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.review_checkout .review_products ul li small {
+  justify-self: flex-end;
+}
+
+.review_checkout .review_details {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+@media (max-width: 599px) {
+  .review_checkout .review_details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.review_checkout .review_details .review_shipping {
+  color: #fafbfc;
+  margin-bottom: 70px;
+}
+
+.review_checkout .review_details .review_payment_details ul li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #fafbfc;
+}
+
+@media (max-width: 599px) {
+  .review_checkout .review_details .review_payment_details ul li {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin: 20px;
+  }
+}
+
+.review_title {
+  color: #fafbfc;
+  margin-bottom: 30px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+/*# sourceMappingURL=Review.css.map */

@@ -13,7 +13,7 @@ import {
 import Decimal from "decimal.js";
 import api from "../../services/api";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import cartEmpty from "../../assets/cartEmpty.jpg";
+import cartEmpty from "../../assets/cartEmpty.png";
 
 import "../../styles/css/Cart.css";
 
@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120
+  },
+  label: {
+    color: "#fafbfc"
   },
   selectEmpty: {
     marginTop: theme.spacing(2)
@@ -105,7 +108,7 @@ export default function Cart({ history }) {
 
   return (
     <div className="cart-page">
-      <div className="checkout">
+      <div className="checkout_cartPage">
         <h1>Your Cart</h1>
         <div className="product_total">
           <h2>Product Total</h2> <h3>${`${amount}`}</h3>
@@ -122,7 +125,6 @@ export default function Cart({ history }) {
           style={{ padding: "15px" }}
           size="large"
           variant="contained"
-          color="primary"
           onClick={handleClickCheckout}
         >
           Checkout
@@ -132,13 +134,20 @@ export default function Cart({ history }) {
         cartItems.map(items => (
           <div className="items" key={items.id}>
             <div className="name">
-              <img src={items.Images[0].url} alt="product image" />
+              <img
+                className="cart_img"
+                src={items.Images[0].url}
+                alt="product image"
+              />
               <p>{items.name}</p>
             </div>
 
             <div className="quantity">
               <FormControl variant="filled" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-filled-label">
+                <InputLabel
+                  className={classes.label}
+                  id="demo-simple-select-filled-label"
+                >
                   Quantity
                 </InputLabel>
                 <Select

@@ -45,13 +45,13 @@ export function Navbar({ mobileCategories, mobileAccount }) {
             </Link>
           </div>
           <div className="favorites">
-            <Link to="favorites">
+            <Link to="/favorites">
               <button type="button" className="toobar__button" id="favorites">
                 <i className="fas fa-heart fa-2x " />
               </button>
 
               <label htmlFor="favorites" className="label">
-                Favorites
+                Wish list
               </label>
             </Link>
           </div>

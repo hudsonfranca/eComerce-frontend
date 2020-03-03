@@ -49,24 +49,44 @@ export default function Card({ image, title, price, id, status, handleClick }) {
     setAnchorEl(null);
   };
 
+  const handleFavorite = async () => {
+    try {
+      if (!sessionStorage.getItem("authorization")) {
+      } else {
+        const auth = await sessionStorage.getItem("authorization");
+        await api.post(`/api/product/${id}/favorites`, null, {
+          headers: {
+            authorization: `Bearer ${auth}`
+          }
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const open = Boolean(anchorEl);
   const idPopover = open ? "simple-popover" : undefined;
   return (
     <>
       <div className="card_container">
+        <div className="favorite">
+          <Box
+            component="fieldset"
+            mb={3}
+            borderColor="transparent"
+            onClick={() => handleFavorite()}
+          >
+            <StyledRating
+              // value={1}
+              name="customized-color"
+              getLabelText={value => `${value} Heart${value !== 1 ? "s" : ""}`}
+              icon={<Favorite fontSize="inherit" />}
+              max={1}
+            />
+          </Box>
+        </div>
         <div className="card" onClick={() => handleClick(id)}>
-          <div className="favorite">
-            <Box component="fieldset" mb={3} borderColor="transparent">
-              <StyledRating
-                name="customized-color"
-                getLabelText={value =>
-                  `${value} Heart${value !== 1 ? "s" : ""}`
-                }
-                icon={<Favorite fontSize="inherit" />}
-                max={1}
-              />
-            </Box>
-          </div>
           <img src={image} alt="product" />
 
           <div className="title">{title}</div>

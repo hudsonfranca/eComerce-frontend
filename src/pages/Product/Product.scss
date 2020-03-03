@@ -7,8 +7,9 @@
   display: grid;
   grid-template-rows: 1fr 1fr auto;
   grid-template-columns: 1.5fr 2fr;
-  color: $primaryColor;
+  color: $secondaryColor;
   padding: 30px;
+  background-color: $primaryColor;
 
   @include for-phone-only {
     display: flex;

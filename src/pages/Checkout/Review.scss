@@ -1,0 +1,81 @@
+@import "../../styles/scss/variables";
+@import "../../styles/scss/media";
+
+.review_checkout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 2fr 1fr;
+
+  .review_products {
+    width: 100%;
+    height: 100%;
+    ul {
+      width: 100%;
+      height: 100%;
+      li {
+        color: $secondaryColor;
+        width: 80%;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        text-align: center;
+
+        strong {
+          align-self: flex-start;
+        }
+
+        small {
+          justify-self: flex-end;
+        }
+      }
+    }
+  }
+
+  .review_details {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    @include for-phone-only {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review_shipping {
+      color: $secondaryColor;
+      margin-bottom: 70px;
+    }
+
+    .review_payment_details {
+      ul {
+        li {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+          color: $secondaryColor;
+
+          @include for-phone-only {
+            justify-content: space-around;
+            margin: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.review_title {
+  color: $secondaryColor;
+  margin-bottom: 30px;
+  align-self: flex-start;
+}

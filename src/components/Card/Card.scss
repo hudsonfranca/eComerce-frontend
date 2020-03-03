@@ -3,10 +3,9 @@
   width: 270px;
   height: 470px;
   background-color: white;
-  box-shadow: 0px 0px 7px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: -1px 0px 9px 0px $secondaryColor;
   border-radius: 5px;
   cursor: pointer;
-
   margin-bottom: 17px;
   padding: 10px;
   display: flex;
@@ -14,6 +13,10 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+
+  .favorite {
+    align-self: flex-end;
+  }
 
   .cartAdd {
     width: 100%;
@@ -31,10 +34,6 @@
 
     &:hover img {
       transform: scale(1.1);
-    }
-
-    .favorite {
-      align-self: flex-end;
     }
 
     img {

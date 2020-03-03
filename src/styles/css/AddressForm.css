@@ -39,12 +39,6 @@
   color: #fafbfc;
 }
 
-.address_form .shipping_method_button {
-  -ms-grid-column: 2;
-      grid-column-start: 2;
-  grid-column-end: 3;
-}
-
 .address_form .textField {
   width: 100%;
 }

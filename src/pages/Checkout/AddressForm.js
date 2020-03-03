@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField, makeStyles } from "@material-ui/core";
-import { Zip } from "../../components/NumberFormat";
+import { ZipCode } from "../../components/NumberFormat";
 import "../../styles/css/AddressForm.css";
 
 const useStyles = makeStyles(theme => ({
@@ -122,11 +122,11 @@ export default function AddressForm({ handleChange, values }) {
         multiline
         rowsMax="4"
         value={zip}
-        onChange={handleChange}
+        onChange={e => handleChange(e)}
         variant="filled"
         className="textField"
         InputProps={{
-          inputComponent: Zip,
+          inputComponent: ZipCode,
           className: classes.multilineColor
         }}
         InputLabelProps={{ className: classes.InputLabelProps }}

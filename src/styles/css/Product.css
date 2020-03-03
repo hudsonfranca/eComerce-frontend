@@ -7,8 +7,9 @@
       grid-template-rows: 1fr 1fr auto;
   -ms-grid-columns: 1.5fr 2fr;
       grid-template-columns: 1.5fr 2fr;
-  color: #313131;
+  color: #fafbfc;
   padding: 30px;
+  background-color: #313131;
 }
 
 @media (max-width: 599px) {

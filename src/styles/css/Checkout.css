@@ -55,6 +55,14 @@
   height: 100%;
 }
 
+@media (max-width: 599px) {
+  .checkout .checkout_pages .stepper {
+    width: 100%;
+    padding: 10px;
+    height: 20%;
+  }
+}
+
 .checkout .checkout_pages .step_buttons {
   width: 100%;
   height: 100%;

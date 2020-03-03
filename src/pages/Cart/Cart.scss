@@ -8,19 +8,20 @@
   width: 100%;
   min-height: 100%;
   padding: 30px 100px 10px 100px;
-  color: $primaryColor;
+  color: $secondaryColor;
+  background-color: $primaryColor;
 
   @include for-phone-only {
     padding: 10px;
   }
 
-  .checkout {
+  .checkout_cartPage {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 3px solid $primaryColor;
+    border-bottom: 3px solid $secondaryColor;
     margin-bottom: 50px;
 
     .cart_page_icon {
@@ -108,4 +109,8 @@
     justify-content: space-around;
     align-items: center;
   }
+}
+
+.cart_img {
+  border-radius: 5px;
 }
