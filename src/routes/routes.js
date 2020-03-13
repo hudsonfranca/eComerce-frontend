@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import SignIn from "../pages/SignIn/SignIn";
 import CreateAccount from "../pages/CreateAccount/CreateAccount";
-import { HomePage, Product, Checkout } from "../pages";
+import { HomePage, Product, Checkout, MyOrders } from "../pages";
 import Favorites from "../pages/Favorites/Favorites";
 import Cart from "../pages/Cart/Cart";
 import { UserContext } from "./UserContext";
@@ -23,6 +23,7 @@ export default function Routes() {
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={Product} />
         <Route path="/sheckout" component={Checkout} />
+        <Route path="/orders" component={MyOrders} />
       </UserContext.Provider>
     </Switch>
   );

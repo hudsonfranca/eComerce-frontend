@@ -48,7 +48,11 @@ export default function Favorites({ history }) {
   }
 
   useEffect(() => {
-    loadFavorites();
+    if (!sessionStorage.getItem("authorization")) {
+      history.push("/signin");
+    } else {
+      loadFavorites();
+    }
   }, []);
 
   const hendleDelete = async id => {
@@ -78,7 +82,7 @@ export default function Favorites({ history }) {
                 <>
                   <ListItem alignItems="flex-start" key={product.id}>
                     <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src={product.Images[0].url} />
+                      <Avatar alt="Remy Sharp" src={product.Images[0].small} />
                     </ListItemAvatar>
                     <ListItemText
                       primary={product.name}

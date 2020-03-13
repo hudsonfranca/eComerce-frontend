@@ -46,6 +46,8 @@ export default function SignIn({ history }) {
                 response.data.access_token
               );
 
+              sessionStorage.setItem("id", response.data.customer.id);
+
               setSubmitting(false);
               resetForm();
               history.push("/");

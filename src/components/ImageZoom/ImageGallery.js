@@ -8,7 +8,7 @@ export default function ImagesGallery({ images }) {
       {images &&
         images.map(image => (
           <div key={image.id}>
-            <img src={image.url} alt="product image" />
+            <img src={image.image} alt="product image" />
           </div>
         ))}
     </Carousel>

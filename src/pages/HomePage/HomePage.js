@@ -54,7 +54,7 @@ export default function HomePage({ history }) {
         products.map(prod => (
           <Card
             key={prod.id}
-            image={prod.Images[0].url}
+            image={prod.Images[0].image}
             title={prod.name}
             price={prod.price}
             id={prod.id}

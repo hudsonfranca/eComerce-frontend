@@ -9,7 +9,7 @@ import { Card } from "../../components";
 import CarouselItem from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-export default function Product({ match }) {
+export default function Product({ history, match }) {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -25,25 +25,21 @@ export default function Product({ match }) {
     loadProduct();
   }, []);
 
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+  async function handleBuy(id) {
+    if (!sessionStorage.getItem("authorization")) {
+    } else {
+      const auth = await sessionStorage.getItem("authorization");
+      const { data } = await api.post(`/api/product/${id}/cart`, null, {
+        headers: {
+          authorization: `Bearer ${auth}`
+        }
+      });
+
+      if (data) {
+        history.push("/cart");
+      }
     }
-  };
+  }
 
   return (
     <>
@@ -71,6 +67,7 @@ export default function Product({ match }) {
               size="large"
               color="primary"
               startIcon={<ShopTwoTone />}
+              onClick={() => handleBuy(product.id)}
             >
               Buy
             </Button>

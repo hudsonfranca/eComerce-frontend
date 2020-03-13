@@ -41,37 +41,58 @@ const StyledBadge = withStyles(theme => ({
 
 export default function Cart({ history }) {
   const classes = useStyles();
-  const [age, setAge] = useState("");
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+
+  const [productQuantity, setProductQuantity] = useState("");
 
   const [cartItems, setCartItems] = useState([]);
 
+  async function loadCart() {
+    if (!sessionStorage.getItem("authorization")) {
+      return;
+    } else {
+      const { data } = await api.get(`/api/cart`, {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem("authorization")}`
+        }
+      });
+      if (data) {
+        setCartItems(data);
+      }
+    }
+  }
+
   useEffect(() => {
-    async function loadCart() {
-      if (!sessionStorage.getItem("authorization")) {
-        return;
-      } else {
-        const { data } = await api.get(`/api/cart`, {
+    loadCart();
+  }, []);
+
+  const handleChange = async (id, quantity) => {
+    try {
+      const { data } = await api.put(
+        `/api/product/${id}/cart`,
+        {
+          quantity
+        },
+        {
           headers: {
             authorization: `Bearer ${sessionStorage.getItem("authorization")}`
           }
-        });
-        if (data) {
-          setCartItems(data);
         }
-      }
-    }
+      );
 
-    loadCart();
-  }, []);
+      if (data) {
+        loadCart();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   function handleClickCheckout(e) {
     if (!sessionStorage.getItem("authorization")) {
       history.push("/signin");
-    } else {
+    } else if (sessionStorage.getItem("authorization") && !!cartItems.length) {
       history.push(`/sheckout`);
+    } else {
     }
   }
 
@@ -80,7 +101,11 @@ export default function Cart({ history }) {
   });
 
   const amount = validProducts.reduce((prevVal, elem) => {
-    return new Decimal(prevVal).plus(elem.price);
+    const priceByQuantity = new Decimal(elem.cart_products.quantity).mul(
+      elem.price
+    );
+
+    return new Decimal(prevVal).plus(priceByQuantity);
   }, 0);
 
   async function removeCart(id) {
@@ -136,7 +161,7 @@ export default function Cart({ history }) {
             <div className="name">
               <img
                 className="cart_img"
-                src={items.Images[0].url}
+                src={items.Images[0].image}
                 alt="product image"
               />
               <p>{items.name}</p>
@@ -153,10 +178,11 @@ export default function Cart({ history }) {
                 <Select
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
-                  value={age}
-                  onChange={handleChange}
+                  value={items.cart_products.quantity}
+                  onChange={e => handleChange(items.id, e.target.value)}
+                  className={classes.label}
                 >
-                  <MenuItem value={1}>1</MenuItem>
+                  <MenuItem value={1}> 1</MenuItem>
                   <MenuItem value={2}>2</MenuItem>
                   <MenuItem value={3}>3</MenuItem>
                   <MenuItem value={4}>4</MenuItem>
@@ -165,7 +191,7 @@ export default function Cart({ history }) {
               </FormControl>
             </div>
 
-            <div className="price">{items.price}</div>
+            <div className="price">${items.price}</div>
             <a href="#" onClick={() => removeCart(items.id)}>
               Remove
             </a>

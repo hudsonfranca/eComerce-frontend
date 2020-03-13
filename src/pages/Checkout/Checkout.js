@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as yup from "yup";
 import { Typography, Button, makeStyles, IconButton } from "@material-ui/core";
 import {
   ArrowRight,
@@ -6,9 +7,11 @@ import {
   DoneAllOutlined,
   Done
 } from "@material-ui/icons";
+
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
+import Submit from "./Submit";
 import { Steper } from "../../components";
 import "../../styles/css/Checkout.css";
 
@@ -29,7 +32,54 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Checkout() {
+const schema = yup.object().shape({
+  addressLine: yup
+    .string()
+    .required()
+    .label("Address Line"),
+  city: yup
+    .string()
+    .required()
+    .label("City"),
+  zip: yup
+    .string()
+    .required()
+    .label("Zip"),
+  country: yup
+    .string()
+    .required()
+    .label("Country"),
+  state: yup
+    .string()
+    .required()
+    .label("State"),
+  firstName: yup
+    .string()
+    .required()
+    .label("First name"),
+  lastName: yup
+    .string()
+    .required()
+    .label("Last name"),
+  nameOnCard: yup
+    .string()
+    .required()
+    .label("Name on Card"),
+  cardNumber: yup
+    .number()
+    .required()
+    .label("Card number"),
+  expiryDate: yup
+    .date()
+    .required()
+    .label("Expire date"),
+  cvv: yup
+    .number()
+    .required()
+    .label("Cvv")
+});
+
+export default function Checkout({ history }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
@@ -110,6 +160,10 @@ export default function Checkout() {
     setCompleted({});
   };
 
+  function pushToOrdersPage() {
+    return history.push("/orders");
+  }
+
   //Handle fiels change
   const handleChange = e => {
     if (e.target.name === "addressLine") {
@@ -173,7 +227,10 @@ export default function Checkout() {
                 />
               );
             case 3:
-              return <h1>Success</h1>;
+              return (
+                <Submit addressValues={addressValues} push={pushToOrdersPage} />
+              );
+
             default:
               break;
           }
@@ -215,12 +272,14 @@ export default function Checkout() {
                 ) : (
                   <IconButton
                     color="primary"
-                    aria-label="upload picture"
+                    aria-label="conpleted"
                     component="span"
                     onClick={handleComplete}
                   >
                     {completedSteps() === totalSteps() - 1 ? (
-                      <DoneAllOutlined fontSize="large" />
+                      <>
+                        <DoneAllOutlined fontSize="large" />
+                      </>
                     ) : (
                       <Done fontSize="large" />
                     )}

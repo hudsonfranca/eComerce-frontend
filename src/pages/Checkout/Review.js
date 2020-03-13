@@ -66,7 +66,11 @@ export default function Review({ addressValues, paymentValues }) {
   });
 
   const amount = validProducts.reduce((prevVal, elem) => {
-    return new Decimal(prevVal).plus(elem.price);
+    const priceByQuantity = new Decimal(elem.cart_products.quantity).mul(
+      elem.price
+    );
+
+    return new Decimal(prevVal).plus(priceByQuantity);
   }, 0);
 
   return (
@@ -79,7 +83,7 @@ export default function Review({ addressValues, paymentValues }) {
               <>
                 <ListItem alignItems="flex-start" key={product.id}>
                   <ListItemAvatar>
-                    <Avatar alt="Travis Howard" src={product.Images[0].url} />
+                    <Avatar alt="Travis Howard" src={product.Images[0].small} />
                   </ListItemAvatar>
                   <ListItemText
                     primary={product.name}
