@@ -1,7 +1,7 @@
 import React from "react";
 import { useField } from "formik";
-import { TextField, makeStyles, InputAdornment } from "@material-ui/core";
-import { ContactMail, Person, Phone } from "@material-ui/icons";
+import { TextField, makeStyles } from "@material-ui/core";
+
 import "../../styles/css/TextField.css";
 
 const useStyles = makeStyles(theme => ({
@@ -39,18 +39,6 @@ const MytextField = ({
   const classes = useStyles();
   const errorText = meta.error && meta.touched ? meta.error : "";
 
-  function customIcon(name) {
-    if (name === "email") {
-      return <ContactMail className={classes.cursor} />;
-    }
-    if (name === "person") {
-      return <Person className={classes.cursor} />;
-    }
-    if (name === "phone") {
-      return <Phone className={classes.cursor} />;
-    }
-  }
-
   return (
     <TextField
       placeholder={placeholder}
@@ -64,12 +52,7 @@ const MytextField = ({
       className={classes.textField}
       InputProps={{
         className: classes.multilineColor,
-        inputComponent: InputProps,
-        endAdornment: (
-          <InputAdornment position="end">
-            {icon && customIcon(icon)}
-          </InputAdornment>
-        )
+        inputComponent: InputProps
       }}
       InputLabelProps={{ className: classes.InputLabelProps }}
     />

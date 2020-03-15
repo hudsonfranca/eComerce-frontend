@@ -9,14 +9,13 @@ import {
   Avatar
 } from "@material-ui/core";
 import api from "../../services/api";
-import emptyWishlist from "../../assets/empty_wishlist.png";
+import orderEmpty from "../../assets/order_empty.png";
 import "../../styles/css/MyOrders.css";
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
     backgroundColor: "#3E3E3E"
   },
   inline: {
@@ -27,6 +26,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Favorites({ history }) {
+  useEffect(() => {
+    document.title = "My orders";
+  }, []);
+
   const classes = useStyles();
   const [orders, setOrders] = useState([]);
   async function loadOrders() {
@@ -88,8 +91,12 @@ export default function Favorites({ history }) {
           </>
         ) : (
           <div className="myOrders_list_empty">
-            <img src={emptyWishlist} alt="Empty my orders list " />
-            <h2>Your wish list is empty</h2>
+            <img
+              src={orderEmpty}
+              className="order_empty_img"
+              alt="Empty my orders list "
+            />
+            <h2>Your order list is empty</h2>
           </div>
         )}
       </div>

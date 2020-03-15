@@ -91,8 +91,8 @@
   .App-header .toobar {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 4fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr 1fr;
     -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
     -webkit-box-align: center;
@@ -104,8 +104,8 @@
 
 @media (min-width: 900px) {
   .App-header .toobar {
-    -ms-grid-columns: 1fr 4fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
     -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
   }
@@ -201,12 +201,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -234,12 +234,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -273,12 +273,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -297,6 +297,39 @@
 }
 
 .App-header .toobar .favorites .toobar__button:hover, .App-header .toobar .favorites .toobar__button:active {
+  color: white;
+}
+
+.App-header .toobar .Orders-icon .toobar__button {
+  width: 45%;
+  height: 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: transparent;
+  color: #fafbfc;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.App-header .toobar .Orders-icon .toobar__button:focus {
+  outline: none;
+}
+
+.App-header .toobar .Orders-icon .toobar__button:hover, .App-header .toobar .Orders-icon .toobar__button:active {
   color: white;
 }
 

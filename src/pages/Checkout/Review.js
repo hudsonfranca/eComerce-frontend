@@ -7,7 +7,6 @@ import {
   ListItemAvatar,
   Typography,
   Avatar,
-  Divider,
   makeStyles
 } from "@material-ui/core";
 import api from "../../services/api";

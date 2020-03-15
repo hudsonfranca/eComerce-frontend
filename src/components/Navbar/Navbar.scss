@@ -7,8 +7,8 @@
     width: 45%;
     height: 45%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: row;
     background-color: transparent;
     color: $secondaryColor;
@@ -52,14 +52,14 @@
 
     @include for-tablet-portrait-up {
       display: grid;
-      grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr;
       align-items: center;
       justify-items: center;
     }
 
     @include for-tablet-landscape-up {
-      grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr;
     }
 
@@ -148,6 +148,10 @@
     }
 
     .favorites {
+      @include ToobarButton();
+    }
+
+    .Orders-icon {
       @include ToobarButton();
     }
 

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import * as yup from "yup";
+import React, { useState, useEffect } from "react";
 import { Typography, Button, makeStyles, IconButton } from "@material-ui/core";
 import {
   ArrowRight,
@@ -32,54 +31,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const schema = yup.object().shape({
-  addressLine: yup
-    .string()
-    .required()
-    .label("Address Line"),
-  city: yup
-    .string()
-    .required()
-    .label("City"),
-  zip: yup
-    .string()
-    .required()
-    .label("Zip"),
-  country: yup
-    .string()
-    .required()
-    .label("Country"),
-  state: yup
-    .string()
-    .required()
-    .label("State"),
-  firstName: yup
-    .string()
-    .required()
-    .label("First name"),
-  lastName: yup
-    .string()
-    .required()
-    .label("Last name"),
-  nameOnCard: yup
-    .string()
-    .required()
-    .label("Name on Card"),
-  cardNumber: yup
-    .number()
-    .required()
-    .label("Card number"),
-  expiryDate: yup
-    .date()
-    .required()
-    .label("Expire date"),
-  cvv: yup
-    .number()
-    .required()
-    .label("Cvv")
-});
-
 export default function Checkout({ history }) {
+  useEffect(() => {
+    document.title = "Checkout";
+  }, []);
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});

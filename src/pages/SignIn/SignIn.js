@@ -1,11 +1,14 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect } from "react";
 import "../../styles/css/SignIn.css";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
-import { Button } from "@material-ui/core";
+
 import * as yup from "yup";
 import TextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
+import { Button, Close, CircularProgress } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+
 import api from "../../services/api";
 
 const validationSchema = yup.object({
@@ -21,8 +24,6 @@ const validationSchema = yup.object({
 });
 
 export default function SignIn({ history }) {
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     document.title = "Sign in";
   }, []);
@@ -40,7 +41,8 @@ export default function SignIn({ history }) {
               email_address: data.email_address,
               password: data.password
             });
-            if (response) {
+
+            if (response.data) {
               sessionStorage.setItem(
                 "authorization",
                 response.data.access_token
@@ -70,14 +72,18 @@ export default function SignIn({ history }) {
 
             <PasswordField name="password" id="password" label="Password" />
 
-            <Button
-              variant="contained"
-              className="btn"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Sign In
-            </Button>
+            {isSubmitting ? (
+              <CircularProgress disableShrink />
+            ) : (
+              <Button
+                variant="contained"
+                className="btn"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Sign In
+              </Button>
+            )}
           </Form>
         )}
       </Formik>

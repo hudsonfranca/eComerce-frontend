@@ -5,11 +5,12 @@
   width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr auto;
+  grid-template-rows: auto auto;
   grid-template-columns: 1.5fr 2fr;
   color: $secondaryColor;
   padding: 30px;
   background-color: $primaryColor;
+  grid-gap: 20px 20px;
 
   @include for-phone-only {
     display: flex;
@@ -43,6 +44,8 @@
 
   .product_title {
     padding: 20px;
+    box-shadow: 0px 1px 11px 0px $secondaryColor;
+    border-radius: 5px;
     .product_description {
       margin-top: 50px;
       font-size: 1em;
@@ -72,7 +75,7 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      box-shadow: 0px 1px 11px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 0px 1px 11px 0px $secondaryColor;
       border-radius: 5px;
 
       @include for-phone-only {

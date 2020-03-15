@@ -37,7 +37,7 @@ export default function Card({ image, title, price, id, status, handleClick }) {
       return setAnchorEl(event.currentTarget);
     } else {
       const auth = await sessionStorage.getItem("authorization");
-      const { data } = await api.post(`/api/product/${id}/cart`, null, {
+      await api.post(`/api/product/${id}/cart`, null, {
         headers: {
           authorization: `Bearer ${auth}`
         }

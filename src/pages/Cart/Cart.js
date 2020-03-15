@@ -40,9 +40,11 @@ const StyledBadge = withStyles(theme => ({
 }))(Badge);
 
 export default function Cart({ history }) {
-  const classes = useStyles();
+  useEffect(() => {
+    document.title = "Cart";
+  }, []);
 
-  const [productQuantity, setProductQuantity] = useState("");
+  const classes = useStyles();
 
   const [cartItems, setCartItems] = useState([]);
 
@@ -162,7 +164,7 @@ export default function Cart({ history }) {
               <img
                 className="cart_img"
                 src={items.Images[0].image}
-                alt="product image"
+                alt="product "
               />
               <p>{items.name}</p>
             </div>
@@ -192,14 +194,20 @@ export default function Cart({ history }) {
             </div>
 
             <div className="price">${items.price}</div>
-            <a href="#" onClick={() => removeCart(items.id)}>
+
+            <Button
+              style={{ padding: "15px" }}
+              size="large"
+              variant="contained"
+              onClick={() => removeCart(items.id)}
+            >
               Remove
-            </a>
+            </Button>
           </div>
         ))
       ) : (
         <div className="cart_empty">
-          <img src={cartEmpty} alt="cart empty image" />
+          <img src={cartEmpty} alt="cart empty " />
           <h1>Your Shopping Cart is empty</h1>
         </div>
       )}

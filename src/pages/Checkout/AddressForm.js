@@ -49,7 +49,7 @@ export default function AddressForm({ handleChange, values }) {
         value={firstName}
         onChange={handleChange}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           className: classes.multilineColor
         }}
@@ -64,7 +64,7 @@ export default function AddressForm({ handleChange, values }) {
         value={lastName}
         onChange={handleChange}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           className: classes.multilineColor
         }}
@@ -79,7 +79,7 @@ export default function AddressForm({ handleChange, values }) {
         value={addressLine}
         onChange={handleChange}
         variant="filled"
-        className="textField addressLine"
+        className="textField_address_form addressLine_address_form"
         InputProps={{
           className: classes.multilineColor
         }}
@@ -94,7 +94,7 @@ export default function AddressForm({ handleChange, values }) {
         value={city}
         onChange={handleChange}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           className: classes.multilineColor
         }}
@@ -109,7 +109,7 @@ export default function AddressForm({ handleChange, values }) {
         value={state}
         onChange={handleChange}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           className: classes.multilineColor
         }}
@@ -124,7 +124,7 @@ export default function AddressForm({ handleChange, values }) {
         value={zip}
         onChange={e => handleChange(e)}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           inputComponent: ZipCode,
           className: classes.multilineColor
@@ -140,7 +140,7 @@ export default function AddressForm({ handleChange, values }) {
         value={country}
         onChange={handleChange}
         variant="filled"
-        className="textField"
+        className="textField_address_form"
         InputProps={{
           className: classes.multilineColor
         }}

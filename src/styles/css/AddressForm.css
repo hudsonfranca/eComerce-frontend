@@ -39,11 +39,11 @@
   color: #fafbfc;
 }
 
-.address_form .textField {
+.address_form .textField_address_form {
   width: 100%;
 }
 
-.addressLine {
+.addressLine_address_form {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 3;

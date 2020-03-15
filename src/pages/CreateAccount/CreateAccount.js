@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import "../../styles/css/CreateAccount.css";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
-import { Button } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import api from "../../services/api";
 import MytextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
-import { Cpf, Phone } from "../../components/NumberFormat";
+import { Cpf, Phone, ZipCode } from "../../components/NumberFormat";
 
 const validationSchema = yup.object({
   first_name: yup.string().required("First name is a required field"),
@@ -20,15 +20,42 @@ const validationSchema = yup.object({
     .string()
     .min(8)
     .required("Password is a required field"),
+  confirmPassword: yup
+    .string()
+    .required()
+    .label("Confirm password")
+    .test("passwords-match", "Passwords must match", function(value) {
+      return this.parent.password === value;
+    }),
   phone_number: yup.string().required(),
   cpf: yup
     .string()
     .max(11)
     .min(11)
-    .required("Cpf is a required field")
+    .required("Cpf is a required field"),
+  addressLine: yup
+    .string()
+    .required()
+    .label("Address Line"),
+  city: yup
+    .string()
+    .required()
+    .label("City"),
+  zip: yup
+    .string()
+    .required()
+    .label("Zip"),
+  country: yup
+    .string()
+    .required()
+    .label("Country"),
+  state: yup
+    .string()
+    .required()
+    .label("State")
 });
 
-export default function CreateAccount({}) {
+export default function CreateAccount({ history }) {
   useEffect(() => {
     document.title = "Create Account";
   }, []);
@@ -40,7 +67,13 @@ export default function CreateAccount({}) {
         email_address: "",
         password: "",
         phone_number: "",
-        cpf: ""
+        cpf: "",
+        addressLine: "",
+        city: "",
+        zip: "",
+        country: "",
+        state: "",
+        confirmPassword: ""
       }}
       validationSchema={validationSchema}
       onSubmit={async (data, { setSubmitting, resetForm }) => {
@@ -50,13 +83,22 @@ export default function CreateAccount({}) {
             last_name: data.last_name,
             email_address: data.email_address,
             password: data.password,
+            confirmPassword: data.confirmPassword,
             phone_number: data.phone_number,
-            cpf: data.cpf
+            cpf: data.cpf,
+            customerAddress: {
+              street_address: data.addressLine,
+              city: data.city,
+              zip: data.zip,
+              country: data.country,
+              state: data.state
+            }
           });
-          if (response) {
+          if (response.data) {
             localStorage.setItem("authorization", response.data.access_token);
             setSubmitting(false);
             resetForm();
+            history.push("/");
           }
         } catch (err) {
           console.log(err);
@@ -73,7 +115,6 @@ export default function CreateAccount({}) {
               id="first_name"
               type="input"
               label="First name"
-              icon="person"
             />
 
             <MytextField
@@ -81,7 +122,6 @@ export default function CreateAccount({}) {
               id="last_name"
               type="input"
               label="Last name"
-              icon="person"
             />
 
             <MytextField
@@ -89,20 +129,16 @@ export default function CreateAccount({}) {
               type="email"
               id="email_address"
               label=" Email address"
-              icon="email"
             />
-
-            <PasswordField name="password" id="password" label="Password" />
 
             <MytextField
               name="phone_number"
               type="input"
               id="phone_number"
               label="Phone number"
-              icon="phone"
               InputProps={Phone}
             />
-            <label htmlFor="cpf" className="label" />
+
             <MytextField
               name="cpf"
               id="cpf"
@@ -110,14 +146,51 @@ export default function CreateAccount({}) {
               label="CPF"
               InputProps={Cpf}
             />
-            <Button
-              variant="contained"
-              className="submit_button"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Create an Account
-            </Button>
+
+            <MytextField
+              name="addressLine"
+              id="addressLine"
+              type="input"
+              label="Address line"
+            />
+
+            <MytextField name="city" id="city" type="input" label="City" />
+
+            <MytextField
+              name="zip"
+              id="zip"
+              type="input"
+              label="Zip"
+              InputProps={ZipCode}
+            />
+
+            <MytextField
+              name="country"
+              id="country"
+              type="input"
+              label="Country"
+            />
+
+            <MytextField name="state" id="state" type="input" label="State" />
+
+            <PasswordField name="password" id="password" label="Password" />
+            <PasswordField
+              name="confirmPassword"
+              id="confirmPassword"
+              label="Confirm password"
+            />
+            {isSubmitting ? (
+              <CircularProgress disableShrink />
+            ) : (
+              <Button
+                variant="contained"
+                className="submit_button"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Create an Account
+              </Button>
+            )}
           </Form>
 
           <div className="create-account-sidebar">

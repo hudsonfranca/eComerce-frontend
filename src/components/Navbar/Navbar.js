@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { mobileAccount, mobileCategories } from "../../actions/SideDrawer";
 import logo from "../../assets/logo.png";
+import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
+import FavoriteSharpIcon from "@material-ui/icons/FavoriteSharp";
+import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
+import ShoppingBasketSharpIcon from "@material-ui/icons/ShoppingBasketSharp";
 
 import "../../styles/css/Navbar.css";
 
@@ -37,7 +40,7 @@ export function Navbar({ mobileCategories, mobileAccount }) {
           <div className="account-desktop">
             <Link to="/signin">
               <button type="button" className="toobar__button" id="account">
-                <i className="fas fa-user-alt fa-2x " />
+                <AccountCircleSharpIcon fontSize="large" />
               </button>
               <label htmlFor="account-desktop" className="label">
                 Sign in
@@ -47,7 +50,7 @@ export function Navbar({ mobileCategories, mobileAccount }) {
           <div className="favorites">
             <Link to="/favorites">
               <button type="button" className="toobar__button" id="favorites">
-                <i className="fas fa-heart fa-2x " />
+                <FavoriteSharpIcon fontSize="large" />
               </button>
 
               <label htmlFor="favorites" className="label">
@@ -55,10 +58,21 @@ export function Navbar({ mobileCategories, mobileAccount }) {
               </label>
             </Link>
           </div>
+          <div className="Orders-icon">
+            <Link to="/orders">
+              <button type="button" className="toobar__button" id="orders-icon">
+                <ShoppingBasketSharpIcon fontSize="large" />
+              </button>
+
+              <label htmlFor="orders-icon" className="label">
+                My orders
+              </label>
+            </Link>
+          </div>
           <div className="cart">
             <Link to="/cart">
               <button type="button" className="toobar__button" id="cart">
-                <i className="fas fa-shopping-cart fa-2x " />
+                <ShoppingCartSharpIcon fontSize="large" />
               </button>
 
               <label htmlFor="cart" className="label">

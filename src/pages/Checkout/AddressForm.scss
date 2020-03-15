@@ -24,12 +24,12 @@
     color: $secondaryColor;
   }
 
-  .textField {
+  .textField_address_form {
     width: 100%;
   }
 }
 
-.addressLine {
+.addressLine_address_form {
   grid-column-start: 1;
   grid-column-end: 3;
 }

@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+
     backgroundColor: "#3E3E3E"
   },
   inline: {
@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Favorites({ history }) {
+  useEffect(() => {
+    document.title = "Whish list";
+  }, []);
   const classes = useStyles();
 
   const [favorites, setFavorites] = useState([]);

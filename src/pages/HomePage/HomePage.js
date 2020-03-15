@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Card } from "../../components";
 import "../../styles/css/HomePage.css";
 import baner1 from "../../assets/baner1.webp";
@@ -35,19 +34,19 @@ export default function HomePage({ history }) {
         showStatus={false}
       >
         <div>
-          <img src={baner1} />
+          <img src={baner1} alt="Baner 1" />
         </div>
         <div>
-          <img src={baner2} />
+          <img src={baner2} alt="Baner 2" />
         </div>
         <div>
-          <img src={baner3} />
+          <img src={baner3} alt="Baner 3" />
         </div>
         <div>
-          <img src={baner4} />
+          <img src={baner4} alt="Baner 4" />
         </div>
         <div>
-          <img src={baner5} />
+          <img src={baner5} alt="Baner 5" />
         </div>
       </Carousel>
       {products &&
