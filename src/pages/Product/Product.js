@@ -25,6 +25,7 @@ export default function Product({ history, match }) {
 
   async function handleBuy(id) {
     if (!sessionStorage.getItem("authorization")) {
+      history.push("/signin");
     } else {
       const auth = await sessionStorage.getItem("authorization");
       const { data } = await api.post(`/api/product/${id}/cart`, null, {
