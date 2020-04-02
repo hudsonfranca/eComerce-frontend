@@ -52,14 +52,14 @@
 
     @include for-tablet-portrait-up {
       display: grid;
-      grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr;
       align-items: center;
       justify-items: center;
     }
 
     @include for-tablet-landscape-up {
-      grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr;
     }
 

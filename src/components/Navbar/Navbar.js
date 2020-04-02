@@ -73,16 +73,7 @@ export function Navbar() {
               </form>
             </Paper>
           </div>
-          <div className="account-desktop">
-            <Link to="/signin">
-              <button type="button" className="toobar__button" id="account">
-                <AccountCircleSharpIcon fontSize="large" />
-              </button>
-              <label htmlFor="account-desktop" className="label">
-                Sign in
-              </label>
-            </Link>
-          </div>
+
           <div className="favorites">
             <Link to="/favorites">
               <button type="button" className="toobar__button" id="favorites">
@@ -117,7 +108,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          {sessionStorage.getItem("authorization") && (
+          {sessionStorage.getItem("authorization") ? (
             <div className="exit">
               <button
                 type="button"
@@ -131,6 +122,17 @@ export function Navbar() {
               <label htmlFor="exit" className="label">
                 Logout
               </label>
+            </div>
+          ) : (
+            <div className="account-desktop">
+              <Link to="/signin">
+                <button type="button" className="toobar__button" id="account">
+                  <AccountCircleSharpIcon fontSize="large" />
+                </button>
+                <label htmlFor="account-desktop" className="label">
+                  Sign in
+                </label>
+              </Link>
             </div>
           )}
         </nav>
