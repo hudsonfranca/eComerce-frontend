@@ -75,7 +75,7 @@ export default function Favorites({ history }) {
                         <React.Fragment>
                           <Typography
                             component="span"
-                            variant="h4"
+                            variant="h6"
                             className={classes.inline}
                             color="textPrimary"
                           >
