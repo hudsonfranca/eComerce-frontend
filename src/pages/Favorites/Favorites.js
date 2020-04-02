@@ -6,7 +6,8 @@ import {
   ListItemText,
   Typography,
   makeStyles,
-  Avatar
+  Avatar,
+  Button
 } from "@material-ui/core";
 import api from "../../services/api";
 import emptyWishlist from "../../assets/empty_wishlist.png";
@@ -82,41 +83,35 @@ export default function Favorites({ history }) {
             <h2>Wish List</h2>
             {favorites &&
               favorites.map(product => (
-                <>
-                  <ListItem alignItems="flex-start" key={product.id}>
-                    <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src={product.Images[0].small} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={product.name}
-                      secondary={
-                        <React.Fragment>
-                          <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textPrimary"
-                          >
-                            ${product.price}
-                          </Typography>
-                          <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textPrimary"
-                          >
-                            <a
-                              href="#"
-                              onClick={() => hendleDelete(product.id)}
-                            >
-                              Remove
-                            </a>
-                          </Typography>
-                        </React.Fragment>
-                      }
-                    />
-                  </ListItem>
-                </>
+                <ListItem alignItems="flex-start" key={product.id}>
+                  <ListItemAvatar>
+                    <Avatar alt="Remy Sharp" src={product.Images[0].image} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={product.name}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          component="span"
+                          variant="h5"
+                          className={classes.inline}
+                          color="textPrimary"
+                        >
+                          ${product.price}
+                        </Typography>
+
+                        <Button
+                          style={{ margin: "10px" }}
+                          size="small"
+                          variant="contained"
+                          onClick={() => hendleDelete(product.id)}
+                        >
+                          Remove
+                        </Button>
+                      </React.Fragment>
+                    }
+                  />
+                </ListItem>
               ))}
           </List>
         ) : (

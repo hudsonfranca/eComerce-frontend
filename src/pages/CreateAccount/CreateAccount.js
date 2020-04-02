@@ -23,6 +23,8 @@ const validationSchema = yup.object({
   confirmPassword: yup
     .string()
     .required()
+    .min(8)
+
     .label("Confirm password")
     .test("passwords-match", "Passwords must match", function(value) {
       return this.parent.password === value;
@@ -95,7 +97,8 @@ export default function CreateAccount({ history }) {
             }
           });
           if (response.data) {
-            localStorage.setItem("authorization", response.data.access_token);
+            sessionStorage.setItem("authorization", response.data.access_token);
+            sessionStorage.setItem("id", response.data.user.id);
             setSubmitting(false);
             resetForm();
             history.push("/");

@@ -2,7 +2,6 @@ import React from "react";
 import { TextField, makeStyles } from "@material-ui/core";
 import { Card, Cvv, CardExpiry } from "../../components/NumberFormat";
 import "../../styles/css/PaymentForm.css";
-import { string } from "prop-types";
 
 const useStyles = makeStyles(theme => ({
   root: {

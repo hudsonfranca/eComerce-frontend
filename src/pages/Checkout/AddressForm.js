@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
 export default function AddressForm({ handleChange, values }) {
   const classes = useStyles();
   const {
-    step,
     addressLine,
     city,
     zip,

@@ -21,7 +21,7 @@ export default function Product({ history, match }) {
       }
     }
     loadProduct();
-  }, []);
+  }, [match.params.id]);
 
   async function handleBuy(id) {
     if (!sessionStorage.getItem("authorization")) {

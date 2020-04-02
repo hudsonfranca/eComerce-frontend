@@ -21,11 +21,13 @@ export function Submit({ addressValues, paymentValues, push }) {
 
   async function handleSubmit() {
     try {
+      const paymentMethods = await api.get("/api/paymentMethods");
+
       const { data } = await api.post(
         "/api/orders",
         {
-          id_payment_methods: 1,
-          status: "Pending",
+          id_payment_methods: paymentMethods.data[0].id,
+          status: "On hold",
           orderAddress: {
             street_address: addressLine,
             city,

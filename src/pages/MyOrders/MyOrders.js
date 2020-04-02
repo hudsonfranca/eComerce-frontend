@@ -67,7 +67,7 @@ export default function Favorites({ history }) {
                 {order.Products.map(product => (
                   <ListItem alignItems="flex-start" key={product.id}>
                     <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src={product.Images[0].small} />
+                      <Avatar alt="Remy Sharp" src={product.Images[0].image} />
                     </ListItemAvatar>
                     <ListItemText
                       primary={product.name}
@@ -75,7 +75,7 @@ export default function Favorites({ history }) {
                         <React.Fragment>
                           <Typography
                             component="span"
-                            variant="body2"
+                            variant="h4"
                             className={classes.inline}
                             color="textPrimary"
                           >

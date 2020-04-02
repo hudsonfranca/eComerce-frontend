@@ -1,15 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/css/SignIn.css";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
-
+import { makeStyles } from "@material-ui/core/styles";
 import * as yup from "yup";
 import TextField from "../../components/TextField/TextField";
 import PasswordField from "../../components/PasswordField/PasswordField";
-import { Button, Close, CircularProgress } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import { Button, CircularProgress, Snackbar } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import api from "../../services/api";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2)
+    }
+  }
+}));
 
 const validationSchema = yup.object({
   email_address: yup
@@ -24,9 +37,21 @@ const validationSchema = yup.object({
 });
 
 export default function SignIn({ history }) {
+  const classes = useStyles();
   useEffect(() => {
     document.title = "Sign in";
   }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <div className="signIn-page">
       <Formik
@@ -48,14 +73,17 @@ export default function SignIn({ history }) {
                 response.data.access_token
               );
 
-              sessionStorage.setItem("id", response.data.customer.id);
+              sessionStorage.setItem("id", response.data.user.id);
 
               setSubmitting(false);
               resetForm();
               history.push("/");
+            } else {
+              setOpen(true);
             }
           } catch (err) {
             console.log(err);
+            setOpen(true);
           }
         }}
       >
@@ -111,6 +139,13 @@ export default function SignIn({ history }) {
         <Link to="/createaccount">
           <h3>Create an account &gt; </h3>
         </Link>
+      </div>
+      <div className={classes.root}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="info">
+            Incorrect email or password
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   );

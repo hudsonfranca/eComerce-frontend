@@ -29,7 +29,6 @@ export default function SearchPage({ name, handleCardClick }) {
 
   function handleClick(offset) {
     setOffset(offset);
-    console.log(offset);
   }
 
   useEffect(() => {

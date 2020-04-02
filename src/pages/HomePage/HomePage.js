@@ -16,7 +16,7 @@ export default function HomePage({ history }) {
     async function loadProducts() {
       const { data } = await api.get("/api/products");
       document.title = "Home";
-      setProducts(data);
+      setProducts(data.rows);
     }
     loadProducts();
   }, []);

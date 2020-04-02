@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { mobileAccount, mobileCategories } from "../../actions/SideDrawer";
 import logo from "../../assets/logo.png";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import FavoriteSharpIcon from "@material-ui/icons/FavoriteSharp";
 import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
 import ShoppingBasketSharpIcon from "@material-ui/icons/ShoppingBasketSharp";
+import ExitToAppSharpIcon from "@material-ui/icons/ExitToAppSharp";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles, Paper, InputBase, IconButton } from "@material-ui/core";
 import "../../styles/css/Navbar.css";
@@ -28,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export function Navbar({ mobileCategories, mobileAccount }) {
+export function Navbar() {
   const classes = useStyles();
 
   const [searchValue, setSearchValue] = useState("");
@@ -39,28 +38,23 @@ export function Navbar({ mobileCategories, mobileAccount }) {
     history.push(`/search/${searchValue}`);
   };
 
+  const logout = () => {
+    sessionStorage.removeItem("authorization");
+    sessionStorage.removeItem("id");
+    history.push("/");
+  };
+
   return (
     <>
       <header className="App-header">
         <nav className="toobar">
-          <div className="hamburguer-button">
-            <button
-              type="button"
-              className="hamburguerButton"
-              onClick={mobileCategories}
-            >
-              <div className="rbline" />
-              <div className="rbline" />
-              <div className="rbline" />
-            </button>
-          </div>
           <div className="logo">
             <Link to="/">
               <img src={logo} alt="" className="logo-image" />
             </Link>
           </div>
           <div className="search">
-            <Paper component="form" className={classes.root}>
+            <Paper className={classes.root}>
               <form onSubmit={handleSubmit} className={classes.root}>
                 <InputBase
                   className={classes.input}
@@ -122,17 +116,27 @@ export function Navbar({ mobileCategories, mobileAccount }) {
               </label>
             </Link>
           </div>
+
+          {sessionStorage.getItem("authorization") && (
+            <div className="exit">
+              <button
+                type="button"
+                onClick={logout}
+                className="toobar__button"
+                id="exit"
+              >
+                <ExitToAppSharpIcon fontSize="large" />
+              </button>
+
+              <label htmlFor="exit" className="label">
+                Logout
+              </label>
+            </div>
+          )}
         </nav>
       </header>
     </>
   );
 }
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({
-  mobileAccount: () => dispatch(mobileAccount()),
-  mobileCategories: () => dispatch(mobileCategories())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Navbar;

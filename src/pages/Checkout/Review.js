@@ -82,7 +82,7 @@ export default function Review({ addressValues, paymentValues }) {
               <>
                 <ListItem alignItems="flex-start" key={product.id}>
                   <ListItemAvatar>
-                    <Avatar alt="Travis Howard" src={product.Images[0].small} />
+                    <Avatar alt="Travis Howard" src={product.Images[0].image} />
                   </ListItemAvatar>
                   <ListItemText
                     primary={product.name}
