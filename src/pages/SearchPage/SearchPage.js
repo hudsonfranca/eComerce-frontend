@@ -38,7 +38,7 @@ export default function SearchPage({ name, handleCardClick }) {
           params: {
             name,
             offset,
-            limit: 5
+            limit: 10
           }
         });
 
@@ -61,7 +61,7 @@ export default function SearchPage({ name, handleCardClick }) {
           products.map(prod => (
             <Card
               key={prod.id}
-              image={prod.Images[0].image}
+              image={prod.Images[0]?.image}
               title={prod.name}
               price={prod.price}
               id={prod.id}
@@ -81,7 +81,7 @@ export default function SearchPage({ name, handleCardClick }) {
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <Pagination
-            limit={5}
+            limit={10}
             offset={offset}
             total={TotalProducts}
             onClick={(e, offset) => handleClick(offset)}

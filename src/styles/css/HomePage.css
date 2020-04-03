@@ -19,4 +19,22 @@
           align-items: center;
   background-color: #313131;
 }
+
+.homePage #pagination_home_page {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -ms-flex-item-align: f;
+      align-self: f;
+}
 /*# sourceMappingURL=HomePage.css.map */

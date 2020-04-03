@@ -6,20 +6,48 @@ import baner2 from "../../assets/baner2.webp";
 import baner3 from "../../assets/baner3.webp";
 import baner4 from "../../assets/baner4.webp";
 import baner5 from "../../assets/baner5.webp";
+import {
+  createMuiTheme,
+  MuiThemeProvider,
+  makeStyles
+} from "@material-ui/core/styles";
+import Pagination from "material-ui-flat-pagination";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import api from "../../services/api";
 import { Carousel } from "react-responsive-carousel";
 
+const theme = createMuiTheme();
+const useStyles = makeStyles(theme => ({
+  root: {
+    "& > *": {
+      marginTop: theme.spacing(2)
+    }
+  }
+}));
+
 export default function HomePage({ history }) {
+  const classes = useStyles();
   const [products, setProducts] = useState([]);
+  const [offset, setOffset] = useState(0);
+
+  const [TotalProducts, setTotalProducts] = useState(0);
+
+  function handleClickPagination(offset) {
+    setOffset(offset);
+  }
+
+  async function loadproducts() {
+    const { data } = await api.get(`/api/products/${offset}/${10}`);
+
+    if (data) {
+      setProducts(data.rows);
+      setTotalProducts(data.count);
+    }
+  }
 
   useEffect(() => {
-    async function loadProducts() {
-      const { data } = await api.get("/api/products");
-      document.title = "Home";
-      setProducts(data.rows);
-    }
-    loadProducts();
-  }, []);
+    loadproducts();
+  }, [offset]);
 
   function handleCardClick(id) {
     history.push(`/product/${id}`);
@@ -53,7 +81,7 @@ export default function HomePage({ history }) {
         products.map(prod => (
           <Card
             key={prod.id}
-            image={prod.Images[0].image}
+            image={prod.Images[0]?.image}
             title={prod.name}
             price={prod.price}
             id={prod.id}
@@ -61,6 +89,19 @@ export default function HomePage({ history }) {
             handleClick={handleCardClick}
           />
         ))}
+      <div id="pagination_home_page" className={classes.root}>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <Pagination
+            limit={10}
+            offset={offset}
+            total={TotalProducts}
+            onClick={(e, offset) => handleClickPagination(offset)}
+            size="large"
+            otherPageColor="primary"
+          />
+        </MuiThemeProvider>
+      </div>
     </div>
   );
 }
