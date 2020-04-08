@@ -9,7 +9,7 @@ import baner5 from "../../assets/baner5.webp";
 import {
   createMuiTheme,
   MuiThemeProvider,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -17,12 +17,12 @@ import api from "../../services/api";
 import { Carousel } from "react-responsive-carousel";
 
 const theme = createMuiTheme();
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      marginTop: theme.spacing(2)
-    }
-  }
+      marginTop: theme.spacing(2),
+    },
+  },
 }));
 
 export default function HomePage({ history }) {
@@ -37,8 +37,12 @@ export default function HomePage({ history }) {
   }
 
   async function loadproducts() {
-    const { data } = await api.get(`/api/products/${offset}/${10}`);
-
+    const { data } = await api.get(`/api/products`, {
+      params: {
+        offset,
+        limit: 10,
+      },
+    });
     if (data) {
       setProducts(data.rows);
       setTotalProducts(data.count);
@@ -78,7 +82,7 @@ export default function HomePage({ history }) {
         </div>
       </Carousel>
       {products &&
-        products.map(prod => (
+        products.map((prod) => (
           <Card
             key={prod.id}
             image={prod.Images[0]?.image}

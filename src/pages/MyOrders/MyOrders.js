@@ -6,23 +6,23 @@ import {
   ListItemText,
   Typography,
   makeStyles,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
 import api from "../../services/api";
 import orderEmpty from "../../assets/order_empty.png";
 import "../../styles/css/MyOrders.css";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     maxWidth: 360,
-    backgroundColor: "#3E3E3E"
+    backgroundColor: "#3E3E3E",
   },
   inline: {
     display: "inline",
     color: "#fafbfc",
-    marginTop: "20px"
-  }
+    marginTop: "20px",
+  },
 }));
 
 export default function Favorites({ history }) {
@@ -37,13 +37,13 @@ export default function Favorites({ history }) {
       if (!sessionStorage.getItem("authorization")) {
         history.push("/signin");
       } else {
-        const { data } = await api.get(`/api/orders/index`, {
+        const { data } = await api.get(`/api/orders`, {
           headers: {
-            authorization: `Bearer ${sessionStorage.getItem("authorization")}`
-          }
+            authorization: `Bearer ${sessionStorage.getItem("authorization")}`,
+          },
         });
         if (data) {
-          setOrders(data.rows);
+          setOrders(data);
         }
       }
     } catch (err) {
@@ -58,13 +58,13 @@ export default function Favorites({ history }) {
       <div className="myOrders_list">
         {!!orders.length ? (
           <>
-            {orders.map(order => (
+            {orders.map((order) => (
               <List className={classes.root}>
                 <div className="order_status">
                   <h5>Order #{order.id}</h5>
                   <h6>{order.status}</h6>
                 </div>
-                {order.Products.map(product => (
+                {order.Products.map((product) => (
                   <ListItem alignItems="flex-start" key={product.id}>
                     <ListItemAvatar>
                       <Avatar alt="Remy Sharp" src={product.Images[0].image} />
