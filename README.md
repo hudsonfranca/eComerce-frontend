@@ -3,14 +3,22 @@
 A web application using reactjs and Material-UI to consume an api rest made in Node.js.
 
 <p>
-  <img src="images/8.png"style="width:350px;margin:5px;">
-  <img src="images/1.png" style="width:350px;margin:5px;">
-  <img src="images/2.png" style="width:350px;margin:5px;">
-  <img src="images/3.png" style="width:350px;margin:5px;">
-  <img src="images/4.png" style="width:350px;margin:5px;">
-  <img src="images/5.png" style="width:350px;margin:5px;">
-  <img src="images/6.png" style="width:350px;margin:5px;">
-  <img src="images/7.png" style="width:350px;margin:5px;">
+  <img src="images/8.png">
+  <br>
+  <img src="images/1.png" >
+  <br>
+  <img src="images/2.png" >
+  <br>
+  <img src="images/3.png" >
+  <br>
+  <img src="images/4.png" >
+  <br>
+  <img src="images/5.png" >
+  <br>
+  <img src="images/6.png" >
+  <br>
+  <img src="images/7.png" >
+  <br>
 </p>
 
 ## Prerequisites
