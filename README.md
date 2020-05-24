@@ -7,7 +7,7 @@ A web application using reactjs and Material-UI to consume an api rest made in N
   <br>
   <img src="images/1.png" >
   <br>
-  <img src="images/2.png" >
+  <img src="images/3.png" >
   <br>
   <img src="images/4.png" >
   <br>
